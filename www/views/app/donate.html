@@ -1,0 +1,118 @@
+<ion-view class="donate-view">
+  <ion-content>
+
+    <!-- <div class="item item-divider">
+    <i class="icon ion-arrow-graph-up-right"></i> Trending
+  </div> -->
+  <div class="row profile-details-section profile-tabs">
+    <div class="tabs-striped tabs-background-grey tabs-color-light">
+      <div class="tabs">
+        <a class="tab-item " ng-class="{active: activeTab=='1'}" ng-click="setActiveTab(1);">
+          Donate Points
+        </a>
+        <a class="tab-item" ng-class="{active: activeTab=='2'}" ng-click="setActiveTab(2);">
+          Charity Leaderboard
+        </a>
+      </div>
+    </div>
+  </div>
+  <ion-scroll on-scroll='getScrollPosition()' zooming="false" direction="y" style="height: 510px">
+    <div ng-show="activeSubView=='donate'" class="people-view">
+  <!-- <div class="bar bar-ka4g">
+    <h1 class="title">DONATE YOUR POINTS</h1>
+  </div> -->
+  <div class="explain">
+    <!-- <p>Whoa. That’s a lot of Karma Points! Every Karma Point you donate to a cause gets them that much closer to taking the gold at the top of our leaderboard.</p> -->
+    <p>{{ donateText }}</p>
+    <!-- <p><b>You currently have <span style="color:#F52644">{{user.donate}}</span> points of your <span style="color:#F52644">{{user.karma}}</span> points available for donation.</b></p> -->
+  </div>
+  <div class="row pt-display">
+    <div class="col col-50 pink ">
+      Available points
+    </div>
+    <div class="col col-50" >
+      Total points earned
+    </div>
+  </div>
+  <div class="row pt-display big-points">
+    <div class="col col-50 col-center pink blue-bg divider">
+      {{user.donate}}
+    </div>
+    <div class="col col-50 col-center blue-bg">
+      {{user.karma}}
+    </div>
+  </div>
+  <div class="list">
+
+    <div ng-repeat="category in categories"  class="">
+      <div class="item item-divider">
+        <!-- <i class="icon ion-grid"></i> -->
+        {{category.name}}
+      </div>
+      <div ng-repeat="charity in charities | filter:{ category_id: category.id }"  class="item item-text-wrap charity-item">
+        <div class="row charity-row">
+          <div class="col  col-70 col-center">
+            <a class="charity-link" ng-click="inAppBrowserLink(charity.link)">{{charity.name}}</a> - {{!charity.userDonated ? charity.points_donated : charity.userDonated + charity.points_donated}} <span class="small-points">pts</span>
+          </div>
+          <div class="col col-30 col-center" style="text-align:right">
+            <button class="button button-positive button-add" ng-disabled="donate" ng-click=" donateClick()">
+              ADD POINTS
+            </button>
+          </div>
+        </div>
+        <div class="row edit-row" ng-show="showEdit ">
+          <div class="col col-100 col-center">
+            <div class="item range range-positive">
+              <p><span class="big-points">0</span> pts</p>
+              <input type="range" name="volume" min="0" max="{{+user.donate }}" value="0" ng-model="pointData.points">
+              <p><span class="big-points">{{+user.donate }}</span> pts</p>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row ui-row" ng-show="showEdit ">
+
+          <div class="col col-75" style="text-align:center">
+            <button class="button button-positive button-donate"  ng-click="okClick() ">
+              DONATE {{pointData.points}} POINTS
+            </button>
+          </div>
+          <div class="col col-25" style="text-align:right">
+            <button class="button button-assertive button-cancel"  ng-click=" cancelClick()">
+              CANCEL
+            </button>
+          </div>
+          <div>
+          </div>
+          <!-- <span class="instructions">Select how many points you would like to donate.</p> -->
+        </div>
+
+      </div>
+      </div>
+      <br>
+      <div class="row">
+        <p>Don't see a charity you like? <a href="mailto:support@chasseconsulting.com?Subject=Charity%20Suggestion" target="_top">Email Us!</a></p>
+      </div>
+      </div>
+      </div>
+      <div ng-show="activeSubView=='leaderboard'" class="people-view">
+        <div class="suggested-people-list">
+          <div class="suggested-people row" ng-repeat="leader in leaders | orderBy:'-points_donated'">
+            <div class="container">
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <p>{{$index+1}}. <a class="charity-link" ng-click="inAppBrowserLink(leader.link)">{{leader.name}}</a></p>
+                </div>
+                <div class="action-col col-center">
+                  <p>{{leader.points_donated}}</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-view>

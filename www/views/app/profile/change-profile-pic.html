@@ -1,0 +1,36 @@
+<ion-modal-view class="modal-view prove-it-view" ng-controller="ChangeProfilePicCtrl">
+	<ion-header-bar>
+		<h1 class="title modal-title">Change Profile Picture!</h1>
+		<a class="button button-clear" ng-click="change_profile_pic.hide()"><span class="icon ion-close"></span></a>
+	</ion-header-bar>
+	<ion-content class="padding">
+		<div class="post-card-content">
+			<div class="charity-container">
+				<div  class="charity-name">{{ user.name }}</div >
+				</div>
+				<div class="row ">
+					<div class="col">
+						<a class="button button-picture button-full button-dark" ng-click="showActionSheet()"><i class="icon ion-camera"></i><br>Add Image</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<span ng-if="type == 'image'">
+							<img id="imageid" ng-src="{{urlForImage(image)}}" height="200px"/>
+						</span>
+					</div>
+				</div>
+				<form name="change_form" class="change_form" novalidate>
+						<div class="row ">
+							<div class="col">
+								<button type="submit" class="button button-block button-proveit" ng-click="addImage(image)">
+									Submit
+								</button>
+							</div>
+							<p ng-show="error" class="message error">{{error}}</p>
+
+						</div>
+				</form>
+			</div>
+</ion-content>
+</ion-modal-view>

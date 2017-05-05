@@ -1,0 +1,46 @@
+<ion-view class="auth-view" cache-view="false">
+  <ion-nav-bar class="view-navigation">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="padding blue-bg">
+    <div class="row form-heading">
+      <div class="col">
+        <h1 class="form-title">Welcome back</h1>
+        <h3 class="form-sub-title">Login to your account</h3>
+        <!-- <div class="social-sign-up button-bar">
+          <a class="button icon ion-social-facebook button-positive"></a>
+          <a class="button icon ion-social-twitter button-calm"></a>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="row form-separator">
+      <hr class="separator-line"/>
+      <span class="separator-mark">OR</span>
+      <hr class="separator-line"/>
+    </div> -->
+    <div class="row form-wrapper">
+      <div class="col">
+        <form name="login_form" class="" novalidate>
+          <div class="form-fields-outer list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="Username" name="username" ng-model="creds.username" required>
+            </label>
+            <label class="item item-input" show-hide-container>
+              <input type="password" placeholder="Password" name="password" ng-model="creds.password" required show-hide-input>
+            </label>
+            <button type="submit" class="login button button-block" ng-click="doLogIn()" ng-disabled="login_form.$invalid">
+              Login
+            </button>
+            <p ng-show="error" class="message error">{{error}}</p>
+          </div>
+        </form>
+        <div class="alternative-actions">
+          <a class="forgot-password button button-clear button-block" ng-click="showForgotPassword()">
+            Forgot your password?
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,67 @@
+<div class="comments-list">
+	<div class="people-comment row" ng-show="hideEmpty">
+		<div class="col col-top col-usr-img">
+			<!-- We need a wrapper with width set for the preload image directive -->
+			<div class="user-image-outer">
+				<a ng-click="navigateToUserProfile(comment.user)">
+					<pre-img ratio="_1_1" helper-class="square-image">
+						<img class="user-image" ng-src="{{ comment.user.avatar }}" spinner-on-load>
+					</pre-img>
+				</a>
+			</div>
+		</div>
+		<div class="col col-top">
+			<div class="row user-data">
+				<div class="col">
+					<a class="name" ng-click="navigateToUserProfile(comment.user)">{{ comment.user.name}}</a>
+					<p class="charity-name">No Comments
+						<span ng-if="comment.me == true">
+								<button ng-click="removeComment(current_post, comment.id)" class="remove-comment-button button-icon icon ion-close-circled"></button>
+						</span>
+					</p>
+				</div>
+				<div ng-if="comment.me == false" class="user-report-button">
+							<a class="button button-icon icon ion-android-more-vertical" ng-click="showActionSheet(comment.id)"></a>
+						</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="people-comment row" ng-repeat="comment in current_post.comments_list">
+		<div class="col col-top col-usr-img">
+			<!-- We need a wrapper with width set for the preload image directive -->
+			<div class="user-image-outer">
+				<a ng-click="navigateToUserProfile(comment.user)">
+					<pre-img ratio="_1_1" helper-class="square-image">
+						<img class="user-image" ng-src="{{ comment.user.avatar }}" spinner-on-load>
+					</pre-img>
+				</a>
+			</div>
+		</div>
+		<div class="col col-top">
+			<div class="row user-data">
+				<div class="col">
+					<a class="name" ng-click="navigateToUserProfile(comment.user)">{{ comment.user.name}}</a>
+					<p class="charity-name">{{ comment.text }}
+						<span ng-if="comment.me == true">
+					    	<button ng-click="removeComment(current_post, comment.id)" class="remove-comment-button button-icon icon ion-close-circled"></button>
+						</span>
+					</p>
+				</div>
+				<div ng-if="comment.me == false" class="user-report-button">
+		        	<a class="button button-icon icon ion-android-more-vertical" ng-click="showActionSheet(comment.id)"></a>
+		      	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="new-comment-outer row row-center">
+	<div class="col">
+		<div class="item item-input-inset">
+	    <label class="item-input-wrapper">
+	      <input type="text" ng-model="comment" placeholder="Write a comment">
+	    </label>
+			<button ng-click="postComment(comment, current_post);comment = null" class="send-comment-button button button-icon icon ion-paper-airplane"></button>
+	  </div>
+	</div>
+</div>

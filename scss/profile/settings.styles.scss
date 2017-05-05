@@ -1,0 +1,37 @@
+.settings-view
+{
+  background-color: $theme-color-10;
+
+  .list
+  {
+    .item
+    {
+      font-size: 14px;
+      padding: 10px;
+      color: $theme-color-11;
+      background-color: $theme-color-12;
+      border-top-color:$theme-color-10;
+      border-bottom-color:$theme-color-10;
+      &.item-divider
+      {
+        text-transform: uppercase;
+        padding-top: 16px;
+        padding-bottom: 4px;
+        color: $theme-color-11;
+        background-color: $theme-color-10;
+        border-top-color:$theme-color-10;
+        border-bottom-color:$theme-color-10;
+
+      //  @include item-style($settings-page-divider-bg, darken($settings-page-divider-bg, 5%), $settings-page-divider-color);
+      }
+
+      &.settings-option
+      {
+        .item-note
+        {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

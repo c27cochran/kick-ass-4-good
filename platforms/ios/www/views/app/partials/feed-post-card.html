@@ -1,0 +1,43 @@
+<div class="card-1" ng-if="featuredChallenge._id != card._id">
+  <div class="list card">
+    <div class="charity-container">
+      <div  class='karma-point-tag'>
+        +{{ card.karma }}
+      </div>
+      <div  class="charity-name">{{ card.title }}</div >
+      </div>
+      <div class="img-gradient">
+        <div class="item item-body">
+          <a ui-sref="app.challenge({ challengeId: card.id })" ng-click="resetAdClick()">
+            <div class="card-challenge-image-outer">
+              <pre-img  helper-class="avatar-image">
+                <img ng-src="{{ card.picture }}" spinner-on-load>
+              </pre-img>
+            </div>
+          </a>
+          <div id="frostedGlassCard" class="item item-celebrity bg-gradient">
+            <div class="card-avatar-image-outer">
+              <pre-img ratio="_1_1" helper-class="avatar-image">
+                <img ng-src="{{ card.user.avatar }}" spinner-on-load>
+              </pre-img>
+            </div>
+            <div  class="challenge-hash-tag">{{ card.hashtag }}</div >
+            </div>
+          </div>
+        </div>
+        <div class="item item-banner banner-gradient" ng-show="card.accepted" ng-model="card" ng-class="{completed: card.accepted}">
+          <p class="banner banner-accepted" >ACCEPTED</p>
+        </div>
+        <div class="item item-banner banner-gradient" ng-show="card.completed" ng-model="card" ng-class="{completed: card.completed}">
+          <p class="banner banner-completed" >COMPLETED</p>
+        </div>
+      </div>
+      <div class="challenge-stats ">
+        <div class="row">
+          <div class="col">{{ card.likes }} likes</div>
+          <div class="col " style="text-align: center;">{{ card.participants }} participants</div>
+          <div class="col"><a class="button category-button" ui-sref="app.category_feed({ categoryId: card.category.id })">{{ card.category.name }}</a></div>
+        </div>
+      </div>
+    </div>
+  </div>

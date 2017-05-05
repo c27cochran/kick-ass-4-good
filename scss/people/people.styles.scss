@@ -1,0 +1,259 @@
+.people-view
+{
+  padding-top: 10px;
+  background: $theme-color-10;
+  &.kicked-view{
+    padding-top: 0px;
+  }
+  a{
+    &.charity-link{
+  color: $theme-color-14;
+  text-decoration: underline;
+}
+  }
+  .item-divider
+  {
+    //@include item-style($people-divider-bg, darken($people-divider-bg, 5%), $people-divider-color);
+    text-transform: uppercase;
+    padding-top: 4px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    color: $theme-color-11;
+    background-color: $theme-color-12;
+    border-top-color:$theme-color-10;
+    border-bottom-color:$theme-color-10;
+  }
+
+  .col-user-image
+  {
+    max-width: 50px;
+    &.col-user-image-kicked{
+      width: 35px !important;
+      max-width: 35px !important;
+    }
+    // .kicked-image{
+    //   width: 30px !important;
+    // }
+  }
+
+  .user-image-outer
+  {
+    .user-image
+    {
+      width: 100%;
+    }
+
+    .square-image .user-image
+    {
+      border-radius: 50%;
+    }
+  }
+
+  .user-related-content
+  {
+    .user-preview-image
+    {
+      width: 100%;
+    }
+  }
+
+  // .suggested-people.card
+  // {
+  //   box-shadow: none;
+  //   margin: 0px;
+  //   padding: 0px;
+  //   background-color: $theme-color-12;
+  //   .user-data
+  //   {
+  //     padding: 0px;
+  //
+  //     .col
+  //     {
+  //       padding: 0px;
+  //       p{
+  //         margin:0px;
+  //       }
+  //     }
+  //
+  //     .username
+  //     {
+  //       display: block;
+  //       font-size: 14px;
+  //       line-height: 30px;
+  //       font-weight: 500;
+  //       text-decoration: none;
+  //       text-transform: lowercase;
+  //       color: $theme-color-11;
+  //     }
+  //
+  //     .name
+  //     {
+  //       display: block;
+  //       font-size: 14px;
+  //       line-height: 30px;
+  //       font-weight: 300;
+  //       margin-top: 3px;
+  //       color: rgba($theme-color-11, .6);
+  //     }
+  //
+  //     .action-col
+  //     {
+  //       padding-left: 5px;
+  //
+  //       .button
+  //       {
+  //         margin: 0px;
+  //         text-transform: uppercase;
+  //         font-size: 10px;
+  //         font-weight: 600;
+  //         float: right;
+  //         margin-left: 5px;
+  //         padding-right: 10px;
+  //         padding-left: 10px;
+  //
+  //         &:last-child
+  //         {
+  //           margin-left: 0px;
+  //         }
+  //
+  //         &.follow-button
+  //         {
+  //           @include button-outline($people-follow-button-bg);
+  //         }
+  //
+  //         &.hide-button
+  //         {
+  //           @include button-outline($people-hide-button-bg);
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   .user-related-content
+  //   {
+  //     padding-left: 0px;
+  //     padding-right: 0px;
+  //
+  //     .col
+  //     {
+  //       padding: 1px;
+  //
+  //       &:first-child
+  //       {
+  //         padding-left: 0px;
+  //       }
+  //
+  //       &:last-child
+  //       {
+  //         padding-right: 0px;
+  //       }
+  //     }
+  //   }
+  //
+  //   .user-relation
+  //   {
+  //     .col
+  //     {
+  //       padding-bottom: 0px;
+  //     }
+  //
+  //     .relation
+  //     {
+  //       text-transform: uppercase;
+  //       font-size: 11px;
+  //       font-weight: 300;
+  //       letter-spacing: 0.05em;
+  //       color: rgba($people-color, .6);
+  //     }
+  //   }
+  // }
+
+  .suggested-people.row
+  {
+    //background-color: $theme-color-12;
+    padding-top: 10px;
+    //margin-bottom: -4px;
+    border-bottom: 1px dashed rgba(255,48,95,0.5);
+    padding-bottom: 5px;
+    padding-left:0px;
+    padding-right:0px;
+    &:last-child{
+      border-bottom: none;
+    }
+    &.kicked-row{
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .col-kicked{
+      padding:0px;
+    }
+    .container{
+      display:flex;
+      width:100%;
+      height:100%;
+      background-color: $theme-color-10;
+    .user-data
+    {
+      padding: 0px;
+
+      .col
+      {
+        padding: 0px;
+        p{
+          color: $theme-color-14;
+          margin:0px;
+          line-height: 30px;
+        }
+      }
+
+      .name
+      {
+        display: block;
+        font-size: 14px;
+        line-height: 30px;
+        font-weight: 500;
+        text-decoration: none;
+        color: $theme-color-14;
+      }
+
+      .brief-info
+      {
+        display: block;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 300;
+        margin-top: 2px;
+        //color: rgba($people-color, .6);
+      }
+
+      .action-col
+      {
+        padding-left: 5px;
+        p{
+          color: $theme-color-14;
+          margin:0px;
+        }
+        .follow-button
+        {
+          border-radius:500px;
+          margin: 0px;
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 400;
+          float: right;
+          margin-left: 5px;
+          padding-right: 10px;
+          padding-left: 10px;
+
+          @include button-outline($people-follow-button-bg);
+
+          &:last-child
+          {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+  }
+}

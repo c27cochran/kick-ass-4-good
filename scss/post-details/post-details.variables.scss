@@ -1,0 +1,18 @@
+// Post Details
+$post-details-bg: $theme-color-10;
+$post-details-color: $theme-color-2;
+$post-details-active-color: $theme-color-3;
+
+$post-details-divider-bg: $theme-color-1-b;
+$post-details-divider-color: $theme-color-2;
+
+$post-details-trend-button-bg:               $theme-color-7;
+$post-details-trend-button-text:             $theme-color-1;
+$post-details-trend-button-border:           darken($post-details-trend-button-bg, 10%);
+$post-details-trend-button-active-bg:        darken($post-details-trend-button-bg, 10%);
+$post-details-trend-button-active-border:    darken($post-details-trend-button-bg, 10%);
+
+$post-details-padding: 10px;
+
+$post-details-footer-bg: $theme-color-1-b;
+$post-details-footer-color: $theme-color-2-d;

@@ -1,0 +1,9 @@
+<ion-view class="profile-pics profile-sub-view">
+  <div class="row gellery-outer">
+    <div ng-repeat="picture in user.pictures" class="col col-33 gallery-item-outer">
+      <pre-img ratio="_1_1" helper-class="">
+        <img class="main-image" ng-src="{{picture.picture}}" spinner-on-load>
+      </pre-img>
+    </div>
+  </div>
+</ion-view>

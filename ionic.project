@@ -1,0 +1,14 @@
+{
+  "name": "KickAss4Good",
+  "app_id": "dac5a713",
+  "gulpStartupTasks": [
+    "default",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "documentRoot": "www"
+}

@@ -1,0 +1,128 @@
+.comments-list
+{
+	padding-bottom: $new-comment-height - $comments-padding;
+
+	.people-comment
+	{
+		padding: 0px;
+		margin-bottom: 10px;
+
+		&:last-child
+		{
+			margin-bottom: 5px;
+		}
+
+		& > .col:first-child
+		{
+			padding-left: 0px;
+		}
+
+		.col-usr-img
+		{
+			max-width: 45px;
+		}
+
+		.user-image-outer
+	  {
+	    .user-image
+	    {
+	      width: 100%;
+	    }
+
+	    .square-image .user-image
+	    {
+				max-width: 40px;
+			  max-height: 40px;
+			  width: 100%;
+			  height: 100%;
+			  border-radius: 50%;
+	    }
+	  }
+
+		.user-data
+		{
+			padding: 0px;
+
+			.col
+			{
+				padding: 0px;
+			}
+
+			.name
+			{
+				display: block;
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 500;
+        text-decoration: none;
+				color: $popup-color;
+			}
+
+			.comment
+			{
+				display: block;
+				margin: 0px;
+				font-size: 12px;
+  			line-height: 16px;
+				color: rgba(darken($comments-color, 10), .8);
+			}
+		}
+	}
+
+	.disclaimer
+	{
+		color: rgba(85, 85, 85, 0.8);
+	}
+}
+
+.new-comment-outer
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: $new-comment-bg;
+	border-radius: 0px 0px 4px 4px;
+	height: $new-comment-height;
+	padding: $comments-padding;
+	border: 1px solid rgba(darken($new-comment-bg, 5), .8);
+	color: $new-comment-color;
+
+	& > .col
+	{
+		padding: 0px;
+	}
+
+	.item-input-inset
+	{
+		padding: 0px;
+	  border: none;
+	  background: transparent;
+	  margin: 0px;
+	}
+
+	.item-input-wrapper
+	{
+		background-color: $new-comment-input-bg;
+		border: 1px solid rgba(darken($new-comment-bg, 5), .8);
+
+		input
+		{
+			color: #000;
+
+			@include _placeholder {
+				color: lighten($comments-color, 30%);
+			}
+		}
+	}
+
+	.send-comment-button
+	{
+		color: $popup-color;
+
+		&::before
+		{
+			font-size: 28px;
+		}
+	}
+}

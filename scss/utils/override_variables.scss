@@ -1,0 +1,13 @@
+// Override Ionic variables
+$light:                           #fff !default;
+$stable:                          $theme-color-1-a !default;
+$positive:                        $theme-color-3 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;

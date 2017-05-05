@@ -1,0 +1,379 @@
+.profile-avatar-image-outer
+{
+	width: $item-avatar-width;
+	position: absolute;
+	top: -4px;
+	right: -3px;
+
+
+	img
+	{
+		max-width: $item-avatar-width;
+		max-height: $item-avatar-width;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+	}
+}
+
+.ad-wrap
+{
+	font-size: 10px;
+	color: $theme-color-14 !important;
+}
+
+.profile-view
+{
+	background-color: $profile-subviews-bg;
+	@include background-image(linear-gradient(top, $profile-user-content-bg 0%,$profile-user-content-bg 50%,$profile-subviews-bg 50%,$profile-subviews-bg 100%));
+
+
+	// $bar-height is an ionic variable
+	.profile-details-outer
+	{
+		@include calc(min-height, "100vh - #{($bar-height)}");
+		background-color: $theme-color-10 !important;
+
+		.profile-details
+		{
+			height: initial;
+			bottom: initial;
+			position: absolute;
+			.item-input-inset{
+				.item-input-wrapper{
+					background:$theme-color-12;
+				}
+			}
+			.profile-banner{
+				position:relative !important;
+				display:block;
+				transition: all 0.3s;
+				&.smallHeader{
+					transform: translateY(-83px);
+					//margin-top: -83px;
+				}
+				.user-images{
+					display:block;
+					position:relative;
+					// display: table;
+					width:100%;
+					padding:0px;
+					//margin-top: 0px;
+					// transition: all 0.3s;
+					// &.smallHeader{
+					// 	transform: translateY(-83px);
+					// }
+					.profile-flex{
+						width:100%;
+						position: relative;
+						top: 90px;
+						display: -webkit-box;
+						display: -moz-box;
+						display: -ms-flexbox;
+						display: -webkit-flex;
+						display: flex;
+						-webkit-box-align: center;
+						-moz-box-align: center;
+						-webkit-align-items: center;
+						-ms-flex-align: center;
+						align-items: center;
+						background-color: rgba(255, 255, 255, .6);
+						//opacity: .4;
+						.user-pic-container{
+							// display: table-cell;
+							// vertical-align: middle;
+							//display: inline-block;
+							flex: 1;
+							max-width: 50px;
+							padding: 3px;
+							.user-image-outer
+							{
+								.pre-img
+								{
+									border-radius: 50%;
+								}
+
+								.user-image
+								{
+									width: 100%;
+									border-radius: 50%;
+									vertical-align: middle;
+								}
+							}
+
+							.user-image-cover
+							{
+								width: 100%;
+								border-radius: 50%;
+								// border: 2px solid #fff;
+								// top: 143px;
+								position: absolute;
+							}
+
+						}
+						.user-name-container{
+							// display: table-cell;
+							//display:inline-block;
+							// vertical-align: middle;
+							flex: 1;
+							flex-grow: 3;
+							padding-left: 10px;
+							h4{
+								color:$theme-color-11;
+							}
+						}
+						.user-points-container{
+							// display: table-cell;
+							//display:inline-block;
+							// vertical-align: middle;
+							padding-left: 10px;
+							padding-right: 10px;
+							padding-top: 5px;
+							padding-bottom: 5px;
+							text-align: center;
+							flex: 1;
+							// max-width: 100px;
+							height:100%;
+							// font-size: 10px;
+							background-color: rgba(245, 38, 68, .8);
+							.points{
+								color:$theme-color-10;
+								line-height: 12px;
+								padding-top: 6px;
+								.point-total{
+									font-size: 24px;
+									line-height: 20px;
+								}
+								.point-text{
+									font-size: 10px;
+								}
+							}
+						}
+					}
+				}
+
+				.row{
+					//padding:0px;
+					&.background-gradient{
+						position:relative;
+						// display:block;
+						top: 95px;
+						// bottom:48px;
+						background-color: rgba(255, 255, 255, 0.6);
+					}
+					&.profile-details-section
+					{
+						position: relative;
+						top:100px;
+						background-color: $profile-user-content-bg;
+						&.profile-tabs{
+							border: 0;
+							padding:0px;
+							border-bottom: 5px solid $theme-color-10;
+							height:50px;
+							.tabs{
+								// bottom:auto;
+								// padding-left: 10px;
+								// padding-right: 10px;
+							}
+						}
+						&:first-child
+						{
+							padding-top: 10px;
+						}
+					}
+
+					.col{
+						// text-align: center;
+						color:$theme-color-11;
+					}
+				}
+			}
+		}
+
+
+
+		.user-details-top
+		{
+			padding: 0px 0px 3px 0px;
+		}
+
+		.user-details-bottom
+		{
+			margin-top: 0px;
+			padding: 0px 2px;
+
+			.user-action-outer
+			{
+				padding: 0px;
+
+				.button
+				{
+					margin: 0px;
+					min-height: 22px;
+					line-height: 22px;
+					font-weight: 500;
+
+					@include button-style($profile-user-content-button-bg, $profile-user-content-button-border, $profile-user-content-button-active-bg, $profile-user-content-button-active-border, $profile-user-content-button-text);
+
+					.icon
+					{
+						margin-right: 5px;
+
+						&::before
+						{
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+
+		.user-detail-item
+		{
+			text-align: center;
+			padding: 0px 2px;
+			color: $profile-user-content-color;
+
+			& > a
+			{
+				text-decoration: none;
+				color: $profile-user-content-color;
+			}
+
+			.item-name,
+			.item-count
+			{
+				display: block;
+			}
+
+			.item-name
+			{
+				font-size: 13px;
+				line-height: 20px;
+				color: rgba($profile-user-content-color, .6);
+			}
+
+			.item-count
+			{
+				font-size: 18px;
+				line-height: 18px;
+			}
+		}
+
+		.user-info
+		{
+			.user-name
+			{
+				font-size: 15px;
+				font-weight: 600;
+				margin: 8px 0px 4px 0px;
+				color: $profile-user-content-color;
+			}
+
+			.user-description
+			{
+				line-height: 16px;
+			}
+
+			.user-description,
+			.user-contact,
+			.user-site
+			{
+				font-size: 13px;
+				margin-bottom: 2px;
+				color: rgba($profile-user-content-color, .6);
+			}
+
+			.user-site a
+			{
+				color: $profile-user-content-active-color;
+				text-decoration: none;
+			}
+		}
+
+		.split-actions
+		{
+			border-top: 1px solid darken($profile-user-content-actions-bg, 5);
+			border-bottom: 1px solid darken($profile-user-content-actions-bg, 5);
+			margin: 0px;
+			padding: 0px;
+			background-color: $profile-user-content-actions-bg;
+			background-image: none;
+
+			.user-interaction
+			{
+				text-align: center;
+				padding: 0px;
+
+				// $bar-footer-height is an ionic variable
+				.user-interaction-tab
+				{
+					margin: 0px;
+					min-height: $bar-footer-height;
+					text-transform: uppercase;
+					font-size: 13px;
+					font-weight: 600;
+					color: rgba($profile-user-content-actions-color, .85);
+
+					&.active
+					{
+						color: $profile-user-content-active-color;
+						opacity: 1;
+					}
+
+					.icon
+					{
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+	}
+	.profile-sub-views-outer
+	{
+		height: initial;
+		position: relative;
+		background-color: $profile-subviews-bg !important;
+
+		.profile-sub-view
+		{
+			height: initial;
+			bottom: initial;
+			background-color: $profile-subviews-bg !important;
+			position: relative;
+			.item-divider
+			{
+				//@include item-style($people-divider-bg, darken($people-divider-bg, 5%), $people-divider-color);
+				text-transform: uppercase;
+				// padding-top: 16px;
+				padding-bottom: 4px;
+				color: $theme-color-11;
+				background-color: $theme-color-12;
+				border-top-color:$theme-color-10;
+				border-bottom-color:$theme-color-10;
+			}
+		}
+	}
+.block-user-button{
+	margin-top:0px;
+	margin-bottom:0px;
+	border-color: #F52644;
+	background: #FFF;
+	color: #F52644;
+	&.activated{
+		background-color: $theme-color-11;
+		color: $theme-color-10;
+	}
+}
+	.follow-user-button
+	{
+		    border-color: #F52644;
+		    background: #FFF;
+		    color: #F52644;
+				&.activated{
+					background-color: $theme-color-11;
+					color: $theme-color-10;
+				}
+	}
+}

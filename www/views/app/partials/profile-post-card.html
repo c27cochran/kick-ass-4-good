@@ -1,0 +1,101 @@
+<!-- <div class="card-7">
+  <div class="card">
+    <div class="row card-content-wrapper">
+      <div class="col col-33 image-wrapper">
+        <a class="card-image-anchor" ui-sref="app.challenge({ challengeId: post.challengeId })">
+          <span ng-if="post.filetype == 'image'">
+              <img class="post-image" ng-src="{{post.file._downloadURL}}" >
+          </span>
+          <span ng-if="post.filetype == 'video'">
+            <video width="250" ng-src="{{post.file._downloadURL}}"></video>
+          </span>
+        </a>
+      </div>
+      <div class="col card-data">
+        <a class="card-title-outer" ui-sref="app.challenge({ challengeId: post.challengeId })">
+          <h2 class="card-title">{{post.brag}}</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="card-7">
+  <div class="row" >
+    <div class='profile-flex'>
+      <div class=" user-pic-container">
+        <!-- We need a wrapper with width set for the preload image directive -->
+        <a class="name" ng-click="resetAdClick()" ui-sref="app.profile.challenges({userId: post.user._id})">
+          <div class="user-image-outer">
+            <pre-img ratio="_1_1" helper-class="rounded-image">
+              <img class="user-image-cover" ng-src="{{post.user.avatar}}" spinner-on-load>
+            </pre-img>
+          </div>
+        </a>
+      </div>
+      <div class="user-name-container">
+        <a class="user-name" ng-click="resetAdClick()" ui-sref="app.profile.challenges({userId: post.user._id})">{{post.user.name}}</a>
+      </div>
+      <div ng-if="loggedUser._id !== post.user._id" class="user-report-button">
+        <a class="button button-icon icon ion-android-more-vertical" ng-click="showActionSheet(post._id)"></a>
+      </div>
+      <div ng-if="loggedUser._id === post.user._id" class="user-edit-button">
+        <a class="button button-icon icon ion-edit" ng-click="showActionSheetEdit(post)"></a>
+      </div>
+    </div>
+  </div>
+  <div class="row post-pic" >
+    <a ng-click="resetAdClick()" ui-sref="app.challenge({ challengeId: post.challengeId })">
+      <div class="challenge-header">
+        {{ post.challenge.title }}
+      </div>
+    </a> 
+    <div class="image-holder">
+        <span ng-if="post.filetype == 'image'">
+          <!-- <a class="card-image-anchor" ui-sref="app.challenge({ challengeId: post.challengeId })"> -->
+            <img class="card-image-anchor post-image" ng-src="{{post.file._downloadURL}}" >
+        </span>
+        <span ng-if="post.filetype == 'video'">
+          <video width='100%' height='100%' ng-src="{{trustSrc(post.file._downloadURL)}}" poster="{{post.poster_file._downloadURL}}" preload controls type="{{ post.file.mimeType }}"  webkit-playsinline></video>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="brag-txt">
+    {{post.brag}}
+  </div>
+  <div>
+    <a class="hashtag-txt" ng-click="resetAdClick()" ui-sref="app.challenge({ challengeId: post.challengeId })">{{ post.challenge.hashtag }}</a>
+  </div>
+  <div class="row post-actions">
+    <div class="col col-33">
+      <!-- Like -->
+      <a ng-controller="LikeCtrl" ng-if="post.isLiked == false" ng-click="addOrRemoveLike(post)" class="subdued icon ion-thumbsup" style="float:left;">
+        <ng-pluralize count="post.likeCount"
+                 when="{'0': 'Like',
+                     'one': '1 Like',
+                     'other': '{} Likes'}">
+        </ng-pluralize>
+      </a>
+      <a ng-controller="LikeCtrl" ng-if="post.isLiked == true" ng-click="getPostLikes(post)" class="already-liked subdued icon ion-thumbsup" style="float:left;">
+        <ng-pluralize count="post.likeCount"
+                 when="{'0': 'Like',
+                     'one': '1 Like',
+                     'other': '{} Likes'}">
+        </ng-pluralize>
+      </a>
+    </div>
+    <div class="col col-33">
+      <a ng-controller="CommentsCtrl" ng-click="showComments(post); resetAdClick();" class="subdued icon ion-chatbox-working">
+        <ng-pluralize count="post.commentCount"
+                 when="{'0': 'Comment',
+                     'one': '1 Comment',
+                     'other': '{} Comments'}">
+        </ng-pluralize>
+      </a>
+    </div>
+    <div class="col col-33">
+      <a ng-controller="SharePostCtrl" ng-click="share(post); resetAdClick()" class="subdued" style="float:right;"><i class="icon ion-android-share"></i>&nbsp;&nbsp;Share</a>
+    </div>
+  </div>
+</div>

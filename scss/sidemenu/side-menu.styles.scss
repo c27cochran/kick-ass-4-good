@@ -1,0 +1,162 @@
+.platform-android .tabs-positive > .tabs{
+  border-color: $theme-color-12;
+background-color: $theme-color-12;
+background-image: linear-gradient(0deg, $theme-color-12, $theme-color-12 50%, transparent 50%);
+  color: $theme-color-14;
+  .tab-item{
+    border-bottom: 0px solid $theme-color-11;
+    -webkit-transition: all .3s ease-in-out;
+-moz-transition: all .3s ease-in-out;
+-o-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+color: rgba(85, 85, 85, 1);
+.badge{
+padding: 2px;
+font-size: 10px;
+line-height: 10px;
+height:15px;
+width:15px;
+text-align: center;
+&.badge-assertive{
+  background-color: $theme-color-11 !important;
+}
+}
+.icon{
+  padding-top: 1px;
+  margin-bottom: 3px;
+  height: 27px;
+font-size: 27px;
+}
+  &.tab-item-active{
+    opacity:1;
+    color: $theme-color-11;
+    border-bottom: 3px solid $theme-color-11;
+  }
+}
+}
+
+.tabs-positive > .tabs{
+  border-color: $theme-color-12;
+background-color: $theme-color-12;
+background-image: linear-gradient(0deg, $theme-color-12, $theme-color-12 50%, transparent 50%);
+  color: $theme-color-14;
+  .tab-item{
+    border-bottom: 0px solid $theme-color-11;
+    -webkit-transition: all .3s ease-in-out;
+-moz-transition: all .3s ease-in-out;
+-o-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+color: #888;
+opacity:1;
+.badge{
+padding: 1px 4px;
+font-size: 10px;
+line-height: 13px;
+&.badge-assertive{
+  background-color: $theme-color-11 !important;
+}
+}
+.icon{
+  padding-top: 1px;
+  margin-bottom: 3px;
+  height: 27px;
+font-size: 27px;
+}
+  &.tab-item-active{
+    opacity:1;
+    color: $theme-color-11;
+    border-bottom: 3px solid $theme-color-11;
+  }
+}
+}
+
+
+
+.menu-outer
+{
+  background-color: $menu-bg;
+
+  .menu-items-list .list
+  {
+    padding-top: $menu-top-items-padding;
+  }
+
+  .menu-bottom-options
+  {
+    padding-top: $menu-bottom-items-padding;
+  }
+
+  ion-item
+  {
+    background: transparent;
+    border: none;
+    color: rgba(darken($menu-color, 2%), .7);
+
+    .menu-text
+    {
+      color: rgba(darken($menu-color, 2%), .7);
+      font-weight: 500;
+    }
+
+    .menu-icon
+    {
+      color: rgba(lighten($menu-icon-color, 50%), .3);
+    }
+
+    .item-pointer-icon
+    {
+      font-size: 16px;
+      right: 0px;
+      color: rgba(lighten($menu-icon-color, 50%), .3);
+    }
+
+    .item-content
+    {
+      background: transparent !important;
+
+      // For right item pointer icon
+      // $item-icon-font-size, $item-padding are Ionic variables
+      padding-right: $item-icon-font-size !important;
+      padding-left: (ceil( ($item-padding * 3) + ($item-padding / 3) ) + 5) !important;
+
+      // When user press the item
+      &.activated
+      {
+        border-color: transparent;
+        background-color: transparent;
+        color: $menu-color;
+
+        .menu-text
+        {
+          color: rgba(lighten($menu-icon-color, 50%), .3);
+        }
+      }
+    }
+
+    &.active
+    {
+      border-color: transparent;
+      background-color: transparent;
+
+      .item-content
+      {
+        border-color: transparent;
+        background-color: transparent;
+        color: $menu-icon-color;
+      }
+
+      .menu-icon
+      {
+        color: $menu-icon-color;
+      }
+
+      .menu-text
+      {
+        color: $menu-icon-color;
+      }
+    }
+  }
+}
+.drop-logo {
+//  bottom: -10px;
+}

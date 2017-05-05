@@ -1,0 +1,36 @@
+<div ng-hide="hideAdsProfile" class="card-1" id="div-profile-2">
+	<div class="list card">
+	    <div class="charity-container">
+	        <div class="charity-name">Promoted - {{ nativeAd.title }}</div>
+	    </div>
+	    <div class="img-gradient">
+            <div class="row">
+            	<!-- <div class="col"> -->
+            		<img src="{{ nativeAd.coverImage.url }}" width="{{ nativeAd.coverImage.width }}">
+        		<!-- </div> -->
+    		</div>
+
+    		<div class="row ad-body">
+            	{{ nativeAd.body }}
+            </div>
+
+	        <div class="challenge-stats ">
+						<!-- <span ng-if="nativeAd.rating">
+	            <div class="row" >
+	                <div class="col col-center ">
+	              {{nativeAd.rating}}
+	                </div>
+	            </div>
+							</span>  -->
+							<span ng-if="nativeAd.socialContext">
+	            <div class="row">
+	            	<div class="col col-center">
+	            		{{ nativeAd.socialContext }}
+	            	</div>
+            	</div>
+							</span>
+	        </div>
+
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,204 @@
+<ion-view class="post-details-view">
+  <ion-content id="details-scroll" overflow-scroll="true" on-scroll='getScrollPosition()'>
+    <div class="post-card-content">
+      <!-- <div ng-class="{animated: challenge.accepted}" class='karma-point-tag'> -->
+      <div  class='karma-point-tag'>
+        +{{ challenge.karma }}
+      </div>
+      <div class="charity-container">
+
+        <!-- <div class="charity-icon">
+        <button class="button button-category button-light"  href="#">
+        <i class="icon ion-waterdrop"></i>
+      </button>
+    </div> -->
+    <div  class="charity-name">{{ challenge.title }}</div >
+    </div>
+    <div class="img-gradient" >
+    <div class="item item-body">
+      <!-- <img src='{{ challenge.picture }}' style="width:100%; display: block;"> -->
+      <div class="card-challenge-image-outer">
+
+          <pre-img  helper-class="avatar-image">
+            <img ng-src="{{ challenge.picture }}" spinner-on-load>
+          </pre-img>
+
+      </div>
+      <!-- <h2 class="card-title text-center">{{ challenge.title }}</h2> -->
+      <div id="frostedGlassDetail" class="item item-celebrity bg-gradient"  >
+        <div class="card-avatar-image-outer">
+          <pre-img ratio="_1_1" helper-class="avatar-image">
+            <img ng-src="{{ challenge.user.avatar }}" spinner-on-load>
+          </pre-img>
+        </div>
+        <div  class="challenge-hash-tag">{{ challenge.user.hashtag }}</div >
+        </div>
+      </div>
+    </div>
+    <div class="item item-banner banner-gradient" ng-show="accepted" ng-model="challenge" ng-class="{completed: accepted}">
+      <!-- <div class="banner banner-accepted" ><i class="icon ion-checkmark"></i></div> -->
+      <p class="banner banner-accepted" >ACCEPTED</p>
+    </div>
+    <div class="item item-banner banner-gradient" ng-show="completed" ng-model="challenge" ng-class="{completed: completed}">
+      <!-- <p class="banner banner-completed" style="background-image: url({{ challenge.picture }}); background-attachment:local; background-size:100% auto; background-repeat: no-repeat;  background-position: 0px -225px; ">COMPLETED</p> -->
+      <p class="banner banner-completed" >COMPLETED</p>
+
+    </div>
+    <!-- <div class="glass" style="background-image: url({{ challenge.picture }}); background-repeat: no-repeat; width:100%; height:100%; background-attachment:fixed; background-size:cover; position:absolute;"></div> -->
+<!--<style>#frostedGlassDetail:before {   position: absolute; top: -1px; left: 0; z-index: -1; width: 100%; height: 100%; background-image: url({{ challenge.picture }}); background-repeat: no-repeat;  background-size:cover;  background-position: 0px -210px;  content: "";     opacity: 0.4; -webkit-filter: blur(5px); filter: blur(5px); }</style>-->
+
+
+    <div class="row bar-gradient ">
+      <div class="col col-25">
+        <a class="button button-full button--moema" ng-model="challenge" ng-class="{liked: liked}" ng-click="likeClick(challenge)" href="#">
+          <i class="icon theme-icon icon-like"></i>
+          Like
+        </a>
+      </div>
+      <div class="col col-50">
+        <a class="button button-full " ng-hide="accepted || completed" ng-model="challenge" ng-class="{accepted: accepted}" ng-click="karmaAnimate(challenge)" href="#">
+          <i class="icon ion-trophy"></i>
+          Accept
+        </a>
+        <a class="button button-full ng-hide button--moema" ng-show="accepted" ng-model="challenge" ng-class="{accepted: accepted}" ng-click="showProveIt()" href="#" >
+          <i class="icon ion-camera"></i>
+          Prove  It!
+        </a>
+        <a class="button button-full ng-hide button--moema" ng-show="completed" ng-model="challenge" ng-class="{completed: completed}" >
+          <i class="icon ion-checkmark"></i>
+          Completed
+        </a>
+      </div>
+      <div class="col col-25">
+        <a class="button button-full button--moema" on-touch="share()" ng-model="challenge" ng-class="{shared: shared}">
+          <i class="icon theme-icon icon-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+
+      <div class="challenge-stats ">
+        <div class="row">
+    <div class="col  pad-left" >{{ challenge.likes }} Likes</div>
+    <div class="col " style="text-align: center;">{{ challenge.participants }} Accepted</div>
+    <div class="col pad-right"><a class="button category-button"  ui-sref="app.category_feed({ categoryId: challenge.category.id })">{{ challenge.category.name }}</a></div>
+  </div>
+      </div>
+    </div>
+    <!-- <div id="div-details-2" class="row activity-ad">
+      <div class="col col-10 col-center">
+         <div class="user-image-outer">
+           <img class="user-image" ng-src="{{nativeAdsDetails.icon.url}}">
+         </div>
+       </div>
+       <div class="col col-90 col-center ad-wrap">
+         <strong>{{nativeAdsDetails.title}}</strong> {{nativeAdsDetails.body}} <br>{{nativeAdsDetails.socialContext}}
+       </div>
+     </div> -->
+
+    <div class="tabs-striped tabs-background-grey tabs-color-light">
+      <div class="tabs">
+        <a class="tab-item active" ng-class="{active: activeTab=='1'}" ng-click="setActiveTab(1)">
+
+          Details
+        </a>
+        <a class="tab-item" ng-class="{active: activeTab=='2'}" ng-click="setActiveTab(2); getChallengePosts()">
+
+          Posts
+        </a>
+      </div>
+    </div>
+    <div class="challenge-details" ng-show="activeTab=='1'">
+
+     <p><strong>Challenge:</strong> {{ challenge.description }}</p>
+     <p><strong>Details:</strong> {{ challenge.details }}</p>
+     <span ng-if="challenge.charity" style="border-bottom: 1px dashed rgba(255, 48, 95, 0.5);">
+      <a ng-click="shareTwitterDetail(challenge)">{{ challenge.handle }}</a> loves <a ng-click="inAppBrowserLink(challenge.charityURL);">{{ challenge.charity }}</a><br><br>
+    </span>
+     <span ng-if="challenge.credit ">
+       <p class="photo-credit"><strong>Photo Credit:</strong><a ng-click="inAppBrowserLink(challenge.credit.link)">{{challenge.credit.name}}</a></p>
+    </span>
+    <span ng-if="challenge.user.credit">
+      <p class="photo-credit"><strong>Celebrity Image:</strong> <a ng-click="inAppBrowserLink(challenge.user.credit.link)">{{challenge.user.credit.name}}</a></p>
+   </span>
+
+    </div>
+    <div ng-show="activeTab=='2'" class="profile-posts profile-sub-view">
+      <span ng-if="no_posts == true">
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <h4 class="name">No Posts Yet</h4>
+            </div>
+          </div>
+        </div>
+      </span>
+      <span ng-if="no_posts == false">
+        <div ng-repeat="post in posts" class="profile-post-item">
+          <section ng-if="post.discard != true" ng-include="'views/app/partials/profile-post-card.html'" class="post-card-outer"></section>
+        </div>
+      </span>
+      <!-- Infinit scroll -->
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%" immediate-check="false">
+      </ion-infinite-scroll>
+    </div>
+  </div>
+
+
+
+  <!--
+
+  <div class="item item-image">
+  <pre-img ratio="_1_1" helper-class="main-image">
+  <img ng-src="{{challenge.picture}}" spinner-on-load>
+</pre-img>
+</div>
+<div class="item item-divider trend-callout">
+<span class="post-trend-copy">Catch up with this trend</span>
+<a class="trend-wrapper button button-small" ui-sref="app.trend_feed({ trendId: challenge.trend.id })">
+<i class="icon ion-arrow-graph-up-right"></i>
+<span class="post-trend">{{ challenge.trend.name }}</span>
+<i class="icon ion-chevron-right"></i>
+</a>
+</div>
+<div class="item item-body">
+<h2 class="post-title">{{challenge.title}}</h2>
+</div>
+<div class="item item-avatar">
+<div class="card-avatar-image-outer">
+<a ui-sref="app.profile.posts({userId: challenge.userId})">
+<pre-img ratio="_1_1" helper-class="avatar-image">
+<img ng-src="{{ challenge.user.picture }}" spinner-on-load>
+</pre-img>
+</a>
+</div>
+<a ui-sref="app.profile.posts({userId: challenge.userId})">
+<h2 class="avatar-title">{{ challenge.user.name.first }} {{ challenge.user.name.last }}</h2>
+</a>
+<p class="avatar-description"><span am-time-ago="challenge.date"></span></p>
+<a ui-sref="app.category_feed({ categoryId: challenge.category.id })">
+<span class="post-category {{ challenge.category.name }}">{{ challenge.category.name }}</span>
+</a>
+</div>
+<div class="item item-body post-description-outer">
+<p class="post-description">{{challenge.description}}</p>
+</div>
+</div>
+</ion-content>
+<ion-footer-bar class="bar-stable">
+<div class="row">
+<div class="col col-50 col-center actions-col">
+<button class="button button-icon theme-icon icon-like"></button>
+<button ng-controller="CommentsCtrl" class="button button-icon theme-icon icon-bubble" ng-click="showComments(post)"></button>
+<button class="button button-icon theme-icon icon-share" social-share share="post"></button>
+</div>
+<div class="col col-50 col-center brief-col">
+<div class="actions-brief">
+<a href="#" class="subdued">{{challenge.likes}} Likes</a>
+<a ng-controller="CommentsCtrl" ng-click="showComments(post)" class="subdued">{{challenge.count}} Comments</a>
+</div>
+</div> -->
+</div>
+<br><br><br><br><br>
+</ion-footer-bar>
+</ion-view>

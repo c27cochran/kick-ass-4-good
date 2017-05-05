@@ -1,0 +1,31 @@
+<div class="comments-list">
+	<div class="people-comment row" ng-show="hideEmpty">
+		<div class="col col-top">
+			<div class="row user-data">
+				<div class="col">
+					<p class="charity-name">No Likes</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="people-comment row" ng-repeat="like in current_post.likes_list">
+		<div class="col col-top col-usr-img">
+			<!-- We need a wrapper with width set for the preload image directive -->
+			<div class="user-image-outer">
+				<a ng-click="navigateToUserProfile(like.user)">
+					<pre-img ratio="_1_1" helper-class="square-image">
+						<img class="user-image" ng-src="{{ like.user.avatar }}" spinner-on-load>
+					</pre-img>
+				</a>
+			</div>
+		</div>
+		<div class="col col-top">
+			<div class="row user-data">
+				<div class="col" style="padding-top: 12px;">
+					<a class="name" ng-click="navigateToUserProfile(like.user)">{{ like.user.name}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

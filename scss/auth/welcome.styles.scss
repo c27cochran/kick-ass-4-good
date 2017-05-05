@@ -1,0 +1,169 @@
+.welcome-view
+{
+	background-color: $welcome-bg;
+
+	ion-nav-bar
+	{
+		*
+		{
+			color: $welcome-color;
+
+			.buttons button::before
+			{
+				color: $welcome-color;
+			}
+		}
+	}
+
+	ion-header-bar
+	{
+		background-color: transparent !important;
+		background: transparent !important;
+		border: none !important;
+		background-size: 0px !important; // To remove bottom border on header
+	}
+
+	ion-content
+  {
+    top: 0px !important;
+  }
+
+	.multi-bg-outer
+	{
+		z-index: 0;
+	}
+.splash-bg{
+	background-color: $theme-color-12;
+	height: 100%;
+}
+  .top-content
+  {
+    // height: 66%;
+		padding: 0px !important;
+		.app-copy
+		{
+			text-align: center;
+			// padding-top: 15vh;
+			padding-left: 0px;
+			padding-right: 0px;
+			padding-top: 5%;
+			img{
+				display:block;
+			}
+			.welcome-text{
+				width:100%;
+				background-color:$theme-color-10;
+				color:$theme-color-11;
+				padding-top:5px;
+				// padding-bottom:30px;
+				padding-left:10px;
+				padding-right:10px;
+				height:125px;
+
+				.heading-1{
+					font-size: 140%;
+					font-weight: 900;
+				}
+				.heading-2{
+					font-weight: 900;
+				}
+				.heading-3{
+					font-size: 110%;
+					font-weight: 900;
+				}
+			}
+		}
+
+		.app-logo
+		{
+			font-size: 50px;
+			font-family: cursive;
+			font-weight: 600;
+			font-style: italic;
+			color: $welcome-color;
+		}
+
+		.app-tagline
+		{
+			font-size: 16px;
+			margin-top: 20px;
+			color: rgba(darken($welcome-color, 10%), 0.8);
+		}
+  }
+
+  .bottom-content
+  {
+		display: flex;
+		flex-flow: column;
+		height: 29%;
+		align-items: center;
+		justify-content: center;
+		.facebook-button{
+			flex: 1;
+			justify-content: center;
+			display: flex;
+			align-content: center;
+			align-items: center;
+		.facebook-sign-in,
+		.create-account
+    {
+      border-radius: 500px;
+			margin: 10px 12vw;
+			font-size: 18px;
+    }
+
+		.facebook-sign-in,
+		.dont-have-facebook,
+    .create-account,
+		.have-account
+		{
+		// margin-bottom: 50px;
+		}
+
+    .facebook-sign-in
+    {
+      color: rgba($welcome-facebook-sign-in-color, .9);
+      background-color: rgba($welcome-facebook-sign-in-bg, .98);
+      border-color: rgba(darken($welcome-facebook-sign-in-bg, 1), .9);
+    }
+
+    .create-account
+    {
+      color: rgba($theme-color-13, .9);
+      background-color: rgba($welcome-create-account-bg, .98);
+      border-color: rgba(darken($welcome-create-account-bg, 1), .9);
+    }
+
+		.dont-have-facebook,
+		.have-account
+		{
+			color: $theme-color-13;
+			font-size: 16px;
+		}
+		.facebook-paragraph{
+			text-align: center;
+			margin:0;
+		}
+}
+		}
+		.legal-copy{
+			align-self: flex-end;
+			align-items: center;
+			justify-content: center;
+
+			.legal-notice
+			{
+
+				color: $theme-color-13;
+				margin: 0px 12vw 15px 12vw;
+				text-align: center;
+
+				a
+				{
+					text-decoration: none;
+					font-weight: 600;
+					color: $theme-color-11;
+				}
+		}
+  }
+}

@@ -1,0 +1,122 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+
+    <ion-nav-bar class="app-bar">
+      <div class='drop-logo'>
+       <img src="img/KA4G_LogoFinal.svg">
+     </div>
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <!-- <ion-nav-title> -->
+  <!-- <img src="img/drop_logo.png"> -->
+<!-- </ion-nav-title> -->
+<ion-nav-buttons side="right">
+  <!-- <button ng-click=myEvent('profile') class="button button-clear profile-button button--moema"  ng-class="{pointsAnimation: pointsAnimation}"> -->
+    <button ng-click="myEvent('settings'); resetAdClick()" ng-class="{activeButton:activeButton}"  class="button button-clear icon ion-gear-a profile-button">
+    <!-- <div class="profile-avatar-image-outer">
+
+      <pre-img ratio="_1_1" helper-class="avatar-image">
+        <img ng-src="{{loggedUser.avatar}}" spinner-on-load>
+      </pre-img>
+    </div> -->
+  </button>
+</ion-nav-buttons>
+      <!-- <ion-nav-buttons side="left">
+         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons> -->
+
+
+
+    </ion-nav-bar>
+    <!-- <div class='blocker' ng-show="showBackdrop()">
+    </div> -->
+
+    <ion-nav-view name="menuContent">
+      <!-- <ion-nav-title>
+        <a ui-sref="app.feed"><img src="img/drop_logo.png"></a>
+      </ion-nav-title> -->
+
+    </ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- <ion-floating-menu >
+      <ion-floating-item icon="ion-ios-gear"   click="myEvent('settings')" button-color="#F52644" icon-Color="#FFF" text="SETTINGS"></ion-floating-item>
+      <ion-floating-item icon="ion-ribbon-a"   click="myEvent('donateKarma')" button-color="#F52644" icon-Color="#FFF" text="DONATE KARMA"></ion-floating-item>
+      <ion-floating-item icon="ion-share"   click="myEvent('share')" button-color="#F52644" icon-Color="#FFF" text="SHARE"></ion-floating-item>
+      <ion-floating-item icon="ion-share"   class="white-bg" button-color="#fff" iconColor="#fff" style="width:70px; height:70px; opacity:.5; left:-5px; top:-5px;"></ion-floating-item>
+
+  </ion-floating-menu> -->
+  <!--<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000">
+     <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+    <circle filter=url(#goo) cx="60" cy="600" r="50" fill="purple"/>
+    <circle filter=url(#goo) cx="90" cy="600" r="50" fill="purple"/>
+  </svg>-->
+
+  <ion-tabs  class="tabs-positive tabs-icon-top">
+    <div class="points-display-tab"  >
+      <div class="circle-bg" animationend="animationEnded" ng-class="{pointsAnimation: pointsAnimation}">{{pointsToDisplay}}</div>
+    </div>
+    <ion-tab title="FEED" icon="ion-ios-paper" on-select=myEvent('feed') >
+      <!-- href="#/app/feed" -->
+      <!-- Tab 1 content -->
+    </ion-tab>
+
+    <ion-tab title="POINTS" on-select=myEvent('donateKarma') icon="ion-ribbon-a" >
+      <!-- Tab 2 content -->
+    </ion-tab>
+    <ion-tab title="PROFILE" on-select=myEvent('profile') icon="ion-person" badge="data.currentKickedChallenges" badge-style="badge-assertive">
+      <!-- Tab 3 content -->
+    </ion-tab>
+    <ion-tab title="SHARE" on-select=myEvent('share') icon="ion-android-share-alt" >
+      <!-- Tab 3 content -->
+    </ion-tab>
+
+    <ion-tab title="HIDDEN" hidden=true icon="ion-ios-gear" >
+      <!-- Tab 3 content -->
+    </ion-tab>
+
+  </ion-tabs>
+
+  <!-- <ion-side-menu side="left">
+    <ion-content has-bouncing="false" scroll="false" class="menu-outer left-menu">
+      <ion-list class="menu-items-list">
+        <div class="row">
+          <div class="col col-center">
+            <ion-item ui-sref-active="active" class="item-icon-left item-icon-right" menu-close ui-sref="app.feed">
+              <i class="menu-icon icon ion-earth"></i>
+              <h2 class="menu-text">Feed</h2>
+              <i class="item-pointer-icon icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item ui-sref-active="active" class="item-icon-left item-icon-right" menu-close ui-sref="app.people">
+              <i class="menu-icon icon ion-person-stalker"></i>
+              <h2 class="menu-text">People</h2>
+              <i class="item-pointer-icon icon ion-chevron-right"></i>
+            </ion-item>
+            <ion-item ui-sref-active="active" class="item-icon-left item-icon-right" menu-close ui-sref="app.browse">
+              <i class="menu-icon icon ion-ios-albums-outline"></i>
+              <h2 class="menu-text">Browse</h2>
+              <i class="item-pointer-icon icon ion-chevron-right"></i>
+            </ion-item>
+          </div>
+        </div>
+        <div class="row menu-bottom-options">
+          <div class="col col-top">
+
+            <ion-item ui-sref-active="active" ng-class="{'active': ('app.profile' | includedByState)}" class="item-icon-left item-icon-right" menu-close ui-sref="app.profile.posts({userId: loggedUser._id})">
+              <i class="menu-icon icon ion-happy-outline"></i>
+              <h2 class="menu-text">My Profile</h2>
+              <i class="item-pointer-icon icon ion-chevron-right"></i>
+            </ion-item>
+          </div>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu> -->
+</ion-side-menus>

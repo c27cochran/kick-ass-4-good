@@ -1,0 +1,53 @@
+<ion-view class="auth-view" cache-view="false">
+  <ion-nav-bar class="view-navigation">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="padding">
+    <div class="row form-heading">
+      <div class="col">
+        <h1 class="form-title">Create your account</h1>
+        <!-- <h3 class="form-sub-title">Sign up with Social Network or Email</h3>
+        <div class="social-sign-up button-bar">
+          <a class="button icon ion-social-facebook button-positive"></a>
+          <a class="button icon ion-social-twitter button-calm"></a>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="row form-separator">
+      <hr class="separator-line"/>
+      <span class="separator-mark">OR</span>
+      <hr class="separator-line"/>
+    </div> -->
+    <div class="row form-wrapper">
+      <div class="col">
+        <form name="signup_form" class="" novalidate>
+          <div class="form-fields-outer list list-inset">
+            <div class="row multi-inputs">
+              <div class="col">
+                <label class="item item-input">
+                  <input class="multi-input" type="text" placeholder="Name" name="name" ng-model="user.name" required>
+                </label>
+              </div>
+              <div class="col">
+                <label class="item item-input">
+                  <input class="multi-input" type="text" placeholder="Username" name="username" ng-model="user.username" required>
+                </label>
+              </div>
+            </div>
+            <label class="item item-input">
+              <input type="email" placeholder="Email" name="email" ng-model="user.email" required>
+            </label>
+            <label class="item item-input" show-hide-container>
+              <input type="password" placeholder="Password" name="password" ng-model="user.password" required show-hide-input>
+            </label>
+            <button type="submit" class="sign-up button button-block" ng-click="doSignUp()" ng-disabled="signup_form.$invalid">
+              Sign Up
+            </button>
+            <p ng-show="error" class="message error">{{error}}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

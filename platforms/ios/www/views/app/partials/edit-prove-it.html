@@ -1,0 +1,79 @@
+<ion-modal-view class="modal-view prove-it-view" ng-controller="EditProveItCtrl">
+	<ion-header-bar>
+		<h1 class="title modal-title">Prove it!</h1>
+		<a class="button button-clear" ng-hide="uploading" ng-click="hideProveIt(); clearForm();"><span class="icon ion-close"></span></a>
+	</ion-header-bar>
+	<ion-content class="padding" >
+		<div class="post-card-content" delegate-handle="top">
+			<div class="charity-container">
+				<div  class="charity-name">{{ challenge.title }}</div >
+				</div>
+				<span ng-hide="uploaded">
+				<div class="row">
+					<div class="col">
+						<p><strong>Challenge:</strong> {{ challenge.description }}</p>
+					</div>
+				</div>
+				<div class="row " ng-if="!image">
+					<div class="col">
+						<a class="button button-picture button-full button-dark" ng-click="showActionSheet(challenge)"><i class="icon ion-camera"></i><br>Edit Proof<p class="video-warn">(Limit is ~1 minute for videos.)</p></a>
+					</div>
+
+				</div>
+				<div class="row" ng-if="editing">
+					<div class="col col-center prove-it-asset">
+						<span ng-if="post.filetype == 'image'">
+							<img id="imageid" ng-src="{{post.file._downloadURL}}" height="200px"/>
+							<canvas id="canvas" width="640" height="640" style="display: none;"></canvas>
+						</span>
+						<span ng-if="post.filetype == 'video'">
+							<video width="250" ng-src="{{post.file._downloadURL}}" poster="{{post.poster_file._downloadURL}}"></video>
+						</span>
+					</div>
+				</div>
+				<div class="row" ng-if="!editing">
+					<div class="col col-center prove-it-asset">
+						<span ng-if="type == 'image' && image">
+							<img id="imageid" ng-src="{{urlForImage(image)}}" height="200px"/>
+							<canvas id="canvas" width="640" height="640" style="display: none;"></canvas>
+						</span>
+						<span ng-if="type == 'video' && image">
+							<video width="250" ng-src="{{urlForImage(image)}}" poster="{{urlForClipThumb(image)}}"></video>
+						</span>
+					</div>
+				</div>
+				<form name="proveit_form" class="proveit_form" novalidate>
+					<div class="form-fields-outer list ">
+						<div class="row " style="padding-right: 10px; padding-left: 10px;">
+							<div class="col" style="overflow:hidden;">
+								<p class="fancy"><span>Update Your Brag</span></p>
+							</div>
+						</div>
+						<div class="row ">
+							<div class="col">
+								<label class="item item-input item-proveit">
+									<textarea rows="5" class="multi-input" type="text" placeholder="{{post.brag}}" name="brag" ng-model="brag"></textarea>
+								</label>
+							</div>
+						</div>
+						</div>
+						<div class="row ">
+							<div class="col">
+								<!-- <button type="submit" class="button button-block button-proveit" ng-click="addBrag(challenge, brag, image)" ng-disabled="proveit_form.$invalid"> -->
+
+								<button type="submit" ng-hide="uploading" class="button button-block button-proveit" ng-click="addBrag(post, challenge, brag, image)">
+									Update It
+								</button>
+								<div ng-show="uploading" class="upload-spinner">
+									<ion-spinner></ion-spinner><p>Upload in progress. Please wait.</p>
+								</div>
+							</div>
+							<p ng-show="error" class="message error">{{error}}</p>
+
+						</div>
+				</form>
+			</span>
+		</div>
+	</div>
+</ion-content>
+</ion-modal-view>

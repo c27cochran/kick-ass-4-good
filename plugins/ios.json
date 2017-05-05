@@ -1,0 +1,102 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-instagram-plugin": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-facebookads": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-photokandy-video-thumbnail": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-transport-security": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "1224766177553218",
+            "APP_NAME": "KickAss4Good",
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        }
+    },
+    "dependent_plugins": {
+        "com.verso.cordova.clipboard": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-facebook-audnet-sdk": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.chasseconsulting.ka4g"
+        }
+    }
+}

@@ -1,0 +1,3 @@
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: DELETE, UPDATE, PUT, GET, OPTIONS, TRACE, HEAD
+Access-Control-Allow-Headers: Authorization

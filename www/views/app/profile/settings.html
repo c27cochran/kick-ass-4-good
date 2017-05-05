@@ -1,0 +1,55 @@
+<ion-view  class="settings-view">
+  <ion-content>
+    <div class="list">
+      <!-- <div class="item item-divider title">
+        Account
+      </div> -->
+     <!--  <a class="item settings-option" ng-click="showChangeProfile()">
+        Change Profile Picture
+        <span class="item-note">
+          <i class="icon ion-ios-arrow-right"></i>
+        </span>
+      </a>
+      <a class="item settings-option">
+        Change Cover Picture
+        <span class="item-note">
+          <i class="icon ion-ios-arrow-right"></i>
+        </span>
+      </a> -->
+      <!-- <a class="item settings-option">
+        Change Password
+        <span class="item-note">
+          <i class="icon ion-ios-arrow-right"></i>
+        </span>
+      </a> -->
+      <div class="item item-divider title">
+        Settings
+      </div>
+      <span class="settings-option">
+        <ion-toggle ng-model="loggedUser.private" ng-change="privateChange()">
+          Private Account
+        </ion-toggle>
+      </span>
+      <a class="item settings-option" ng-click="showTerms()">
+        <!-- <i class="icon ion-ios-information-outline"></i> -->
+        Terms of Service
+      </a>
+      <a class="item settings-option" ng-click="showPrivacyPolicy()">
+        <!-- <i class="icon ion-ios-locked-outline"></i> -->
+        Privacy Policy
+      </a>
+      <!-- <a class="item settings-option" ng-click="donateSettings()">
+
+        Donate
+      </a> -->
+      <a class="item settings-option" ng-controller="AppRateCtrl" ng-click="appRate()">
+        Rate Our App!
+      </a>
+      <a class="item settings-option" ng-controller="LogOutCtrl" ng-click="logout()">
+        <!-- <i class="icon ion-ios-close-outline"></i> -->
+        Sign Out
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

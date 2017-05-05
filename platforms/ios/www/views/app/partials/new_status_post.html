@@ -1,0 +1,79 @@
+<ion-modal-view class="new-status-post-view">
+  <ion-header-bar class="bar-positive">
+		<div class="buttons">
+	    <button class="button button-clear" ng-click="new_status_post_modal.hide()">Cancel</button>
+	  </div>
+	  <h1 class="title">Write Post</h1>
+	  <div class="buttons">
+	    <button class="button button-clear" ng-click="postStatus()">Post</button>
+	  </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="row audience-outer">
+      <div class="col">
+    		<div class="list post-audience">
+    		  <label class="item item-input item-select select-box">
+    		    <div class="input-label">
+    		      <span>To: </span>
+    					<i class="audience-icon" ng-class="{'ion-earth': (status_post.audience == 'public'), 'ion-person-stalker': (status_post.audience == 'friends'), 'ion-locked': (status_post.audience == 'only-me')}"></i>
+    					<span class="selected-audience">{{ status_post.audience }}</span>
+    		    </div>
+    		    <select ng-model="status_post.audience" class="audience-select">
+    		      <option value="public" selected>Public</option>
+    		      <option value="friends">Friends</option>
+    		      <option value="only-me">Only Me</option>
+    		    </select>
+    		  </label>
+    		</div>
+  		</div>
+		</div>
+		<div class="row post-creation">
+      <div class="col">
+        <div class="row post-text">
+    			<div class="col usr-img-wrapper">
+    				<pre-img ratio="_1_1" helper-class="avatar-image">
+    					<img ng-src="{{loggedUser.picture}}" spinner-on-load>
+    				</pre-img>
+    			</div>
+          <div class="col textarea-outer">
+            <div class="row location-outer" ng-show="status_post.location">
+              <div class="col">
+                <span><b>{{loggedUser.name.first}}</b> is at <b>{{status_post.location}}</b></span>
+              </div>
+            </div>
+      			<div class="row textarea-wrapper">
+              <div class="col">
+        				<textarea msd-elastic="\n" ng-model="status_post.text" placeholder="Write something ..."></textarea>
+        			</div>
+      			</div>
+          </div>
+        </div>
+        <div class="row post-images-outer" ng-show="status_post.images.length > 0">
+          <div class="col post-images-wrapper">
+            <div class="post-image" ng-repeat="img in status_post.images">
+              <div class="row">
+                <div class="col">
+                  <div class="item item-image">
+                    <img ng-src="{{img}}">
+                  </div>
+                  <a class="button button-icon light icon ion-trash-b remove-image-btn" href="#" ng-click="removeImage(img)"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row add-photos-outer">
+          <div class="col">
+            <button class="button button-block button-outline icon-left ion-plus-round" ng-click="openImagePicker()">
+              Add Photos
+            </button>
+          </div>
+        </div>
+      </div>
+		</div>
+  </ion-content>
+  <ion-footer-bar class="bar-stable">
+    <button ng-class="{'selected-action': (status_post.images.length > 0)}" class="button button-icon icon ion-camera" ng-click="openImagePicker()"></button>
+    <button ng-class="{'selected-action': (status_post.location)}" class="button button-icon icon ion-location" ng-click="checkinStatusPost()"></button>
+  </ion-footer-bar>
+</ion-modal-view>

@@ -1,0 +1,34 @@
+<ion-view class="profile-followers profile-sub-view">
+  <ion-list class="contacts-list" can-swipe="true" delegate-handle="followers-list">
+    <ion-item class="contact-item item-avatar" ng-repeat="follower in user.followers">
+      <div class="item-content-wrapper">
+        <div class="user-image-outer">
+        <a ui-sref="app.profile.challenges({userId: follower.userData._id})">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <img class="user-image" ng-src="{{follower.userData.avatar}}" spinner-on-load>
+          </pre-img>
+          </a>
+        </div>
+        <div class="row contact-main first-row">
+          <div class="col col-67 contact-description">
+            <a class="name" ui-sref="app.profile.challenges({userId: follower.userData._id})">{{follower.userData.name}}</a>
+          </div>
+          <div class="col contact-actions">
+            <button ng-if="follower.follow_back" class="action-button button button-outline active button-small button-block" trigger-unfollow>
+              Following
+            </button>
+            <button ng-if="!follower.follow_back" class="action-button button button-outline button-small button-block" ng-click="follow(contact)">
+              Follow
+            </button>
+          </div>
+        </div>
+        <div class="row contact-main">
+          <div class="col contact-description">
+            <p class="about-user">{{follower.userData.about}}</p>
+          </div>
+        </div>
+      </div>
+      <ion-option-button ng-if="follower.follow_back" class="unfollow-button" ng-click="remove(contact)">Unfollow</ion-option-button>
+    </ion-item>
+  </ion-list>
+</ion-view>

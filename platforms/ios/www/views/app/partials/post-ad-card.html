@@ -1,0 +1,36 @@
+<div ng-hide="hideAds" class="card-1" id="div-post-2">
+  <div class="list card">
+      <div class="charity-container">
+          <div class="charity-name">Promoted - {{ nativeAdPost.title }}</div>
+      </div>
+      <div class="img-gradient">
+            <div class="row">
+              <!-- <div class="col"> -->
+                <img src="{{ nativeAdPost.coverImage.url }}" width="{{ nativeAdPost.coverImage.width }}">
+            <!-- </div> -->
+        </div>
+
+        <div class="row ad-body">
+              {{ nativeAdPost.body }}
+            </div>
+
+          <div class="challenge-stats ">
+            <!-- <span ng-if="nativeAdPost.rating">
+              <div class="row" >
+                  <div class="col col-center ">
+                {{nativeAdPost.rating}}
+                  </div>
+              </div>
+              </span>  -->
+              <span ng-if="nativeAdPost.socialContext">
+              <div class="row">
+                <div class="col col-center">
+                  {{ nativeAdPost.socialContext }}
+                </div>
+              </div>
+              </span>
+          </div>
+
+      </div>
+  </div>
+</div>

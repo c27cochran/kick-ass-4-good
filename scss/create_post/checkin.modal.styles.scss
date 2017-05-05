@@ -1,0 +1,128 @@
+.checkin-status-post-view
+{
+  background: $create-post-bg;
+
+  ion-content
+  {
+    .scroll
+    {
+      height: 100%;
+    }
+  }
+
+  .google-search-bar
+  {
+    height: $checkin-search-height;
+    padding: 20px 3px;
+
+    .col
+    {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    // $card-box-shadow is an ionic variable
+    .list
+    {
+      margin: 0px;
+      box-shadow: $card-box-shadow;
+    }
+
+    .search-box
+    {
+      border: 0px;
+      color: $create-post-color;
+
+      .placeholder-icon
+      {
+        color: $create-post-color;
+      }
+
+      input
+      {
+        color: $create-post-color;
+
+        @include placeholder($create-post-color);
+      }
+
+    }
+  }
+
+  .no-results
+  {
+    @include calc(height, "100% - #{($checkin-search-height)}");
+    text-align: center;
+    font-weight: 500;
+    color: rgba($create-post-color-light, .3);
+
+    .search-hint-text
+    {
+      color: rgba($create-post-color-light, .3);
+      margin: 20px 40px 60px 40px;
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    .search-hint-icon
+    {
+      font-size: 90px;
+    }
+  }
+
+  .search-results
+  {
+    @include calc(height, "100% - #{($checkin-search-height)}");
+    margin: 0px;
+    padding: 0px 3px 5px;
+
+    .col
+    {
+      padding-top: 0px;
+    }
+
+    .location-results-list
+    {
+      box-shadow: $card-box-shadow;
+    }
+
+    .location-item
+    {
+      border: none;
+      margin: 0px 0px 0px -1px;
+      border-bottom: 1px solid rgba(darken($create-post-bg, 5), 0.4);
+      color: $create-post-color;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-right: 16px;
+      padding-left: 48px;
+
+      &:last-child
+      {
+        border: none;
+      }
+
+      .icon
+      {
+        left: 8px;
+      }
+
+      .location-name
+      {
+        font-size: 14px;
+        line-height: 14px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        color: $checkin-search-content-color;
+      }
+
+      .location-desc
+      {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 300;
+        margin-top: 3px;
+        color: rgba($checkin-search-content-color, .6);
+      }
+    }
+  }
+}

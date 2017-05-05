@@ -1,0 +1,33 @@
+<ion-view class="browse-view">
+  <ion-content>
+    <div class="list">
+      <!-- <div class="item item-divider">
+        <i class="icon ion-arrow-graph-up-right"></i> Trending
+      </div> -->
+      <div  class="trend-item">
+        <a ui-sref="app.donateKarma" class="karma-donate">
+          <!-- <div class="donate-backgound"> -->
+            <h1 class="trend-title">Donate Karma Points</h1>
+          <!-- </div> -->
+        </a>
+      </div>
+      <div class="item item-divider">
+        <!-- <i class="icon ion-grid"></i> -->
+        Challenge Categories
+      </div>
+      <div class="row categories-outer">
+        <div ng-repeat="category in categories" class="col col-50 category-item-outer">
+          <a ui-sref="app.category_feed({ categoryId: category._id })">
+            <div class="category-item-wrapper">
+              <div class="category-item-content" ng-init="bg_img = category.image">
+                <div multi-bg="[bg_img]" interval="3000" helper-class="category-with-image">
+                  <h1 class="category-title">{{category.name}}</h1>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

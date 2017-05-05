@@ -1,0 +1,83 @@
+.popup-outer
+{
+  .popup
+  {
+    border-radius: 4px;
+    background-color: $popup-bg;
+    width: 90%;
+    max-width: 300px;
+    position: relative;
+  }
+
+  .popup-head
+  {
+    padding: 13px $popup-padding;
+  }
+
+  .popup-body
+  {
+    padding: $popup-padding;
+  }
+
+  .popup-title
+  {
+    color: $popup-color;
+		text-align: left;
+    margin-top: -3px;
+  }
+
+  a
+  {
+    color: $popup-color;
+    text-decoration: none;
+  }
+
+  .challenge-button
+  {
+    background-color: $popup-bg;
+    color: $popup-color;
+    border-color: $popup-color;
+    border-radius: 500px;
+    &.activated
+    {
+      background-color: $popup-color;
+      color: $popup-bg;
+      border-color: $popup-bg;
+    }
+    &.isAlreadyKicked
+    {
+      background-color: $popup-color;
+      color: $popup-bg;
+      border-color: $popup-bg;
+    }
+  }
+
+  .popup-buttons
+  {
+    height: 0px;
+    min-height: 0px;
+    padding: 0px;
+
+    .close-popup
+    {
+      top: 0px;
+      position: absolute;
+      right: 0px;
+      background-color: $popup-bg;
+      color: $popup-color;
+      border: none;
+      padding: 6px;
+      min-width: 0px;
+      min-height: 0px;
+      margin: 0px;
+      display: inline-block;
+      font-family: "Ionicons";
+      font-size: 26px;
+
+      &.activated
+  		{
+  			box-shadow: none;
+  		}
+    }
+  }
+}

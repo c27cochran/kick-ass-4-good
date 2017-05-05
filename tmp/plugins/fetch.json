@@ -1,0 +1,34 @@
+{
+    "cordova-plugin-facebookads": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-facebookads"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-extension": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-extension"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-facebook-audnet-sdk": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-facebook-audnet-sdk"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

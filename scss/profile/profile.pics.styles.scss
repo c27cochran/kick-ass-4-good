@@ -1,0 +1,23 @@
+.profile-pics
+{
+	.gellery-outer
+	{
+		@include flex-wrap(wrap);
+		padding: 5px;
+		padding-bottom: 3px;
+		background-color: $profile-subviews-bg !important;
+	}
+
+	.gallery-item-outer
+	{
+		padding: 5px;
+		@include calc(max-width, "(100vw - 10px)/3");
+	}
+
+	.main-image
+	{
+		width: 100%;
+		height: 100%;
+		border-radius: 2px;
+	}
+}

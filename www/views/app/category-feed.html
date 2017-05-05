@@ -1,0 +1,41 @@
+<ion-view class="feed-view" ng-class="{'filtered-feed': (is_trend_feed || is_category_feed)}">
+  <!-- <ion-nav-title>
+    <span ng-if="is_category_feed">{{ current_category.name }} Feed</span>
+    <span ng-if="is_trend_feed">{{ current_trend.name }} Feed</span>
+    <span ng-if="!is_trend_feed && !is_category_feed">Feed</span>
+  </ion-nav-title> -->
+  <div class="tabs-striped tabs-top tabs-background-grey tabs-color-light">
+    <div class="tabs">
+      <h1>{{ current_category.name }}</h1>
+    </div>
+  </div>
+  <div class="bar bar-ka4g">
+      <h1 class="title">{{ current_category.name }} Challenges</h1>
+  </div>
+
+  <ion-content delegate-handle="top" class='tab-bar-padding'>
+
+    <!-- Refresh to get the new posts -->
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="getNewData()">
+    </ion-refresher>
+
+    <div class="feed-cards-outer">
+
+      <div ng-if="cards.length > 0" ng-repeat="card in cards | orderBy:order" class="post-card-outer card-item">
+        <!-- <section ng-include="'views/app/partials/feed-post-card.html'" class="post-card-outer"></section> -->
+        <section ng-include="'views/app/partials/feed-post-card.html'"></section>
+      </div>
+      <div ng-if="cards.length == 0" class="row row-center empty-feed-outer">
+        <div class="col">
+          <i class="empty-feed-icon icon ion-sad-outline"></i>
+          <h2 class="empty-feed-text">No Challenges here</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinit scroll -->
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%" immediate-check="false">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

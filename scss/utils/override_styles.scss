@@ -1,0 +1,117 @@
+// Override Ionic styles
+
+  .input-popup.popup-container .popup {
+    position: relative;
+    -webkit-transition: bottom 0.3s ease-in-out 0s;
+    transition: bottom 0.3s ease-in-out 0s;
+  }
+
+
+.item-divider
+{
+  //@include item-style($people-divider-bg, darken($people-divider-bg, 5%), $people-divider-color);
+  text-transform: uppercase;
+  padding-top: 16px;
+  padding-bottom: 4px;
+  color: $theme-color-11;
+  background-color: $theme-color-10;
+  border-top-color:$theme-color-10;
+  border-bottom-color:$theme-color-11;
+  font-size:14px;
+  .badge-kicked{
+    border-radius:50%;
+    background-color: $theme-color-11;
+    color:#fff;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+  .item-divider-fancy
+  {
+    //@include item-style($people-divider-bg, darken($people-divider-bg, 5%), $people-divider-color);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    line-height: .8;
+    // padding-top: 16px;
+    // padding-bottom: 4px;
+    color: $theme-color-11;
+    background-color: $theme-color-10;
+    border-top-color:$theme-color-10;
+    border-bottom-color:$theme-color-10;
+    font-size:14px;
+    .badge-kicked{
+      border-radius:50%;
+      background-color: $theme-color-11;
+      color:#fff;
+      // padding-left: 5px;
+      // padding-right: 5px;
+      font-size:14px;
+      line-height: 16px;
+      display:inline-block;
+      padding:2px;
+      width:20px;
+      height:20px;
+      text-align: center;
+    }
+
+
+}
+.item-divider-fancy .fancy-span {
+  display: inline-block;
+  position: relative;
+}
+.item-divider-fancy .fancy-span:before,
+.item-divider-fancy .fancy-span:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-bottom: 10px solid $theme-color-11;
+  top: 5px;
+  width: 600px;
+}
+.item-divider-fancy .fancy-span:before {
+  right: 100%;
+  margin-right: 10px;
+}
+.item-divider-fancy .fancy-span:after {
+  left: 100%;
+  margin-left: 10px;
+}
+@keyframes wave-animation {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 47px bottom;
+  }
+}
+@keyframes loading-animation {
+  0% {
+    background-size: 47px 0px;
+  }
+  100% {
+    background-size: 47px 70px;
+  }
+}
+.card,
+.list-inset{
+  overflow:visible;
+}
+.col-60{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 60%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 60%;
+  -ms-flex: 0 0 60%;
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+.remove-comment-button {
+	float: right;
+}
+.remove-comment-button.icon:before {
+  font-size: 18px;
+}

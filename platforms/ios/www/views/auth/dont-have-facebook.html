@@ -1,0 +1,38 @@
+<ion-view class="welcome-view" cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <a class="button button-clear button-light" ui-sref="app.feed">
+        Skip
+      </a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <!-- <div multi-bg="['http://lorempixel.com/640/1136?1']" interval="3000" helper-class="no-facebook-welcome-bg"> -->
+    <!-- <div multi-bg="['http://i.giphy.com/tKX6FNU9UGwF2.gif']" interval="3000" helper-class="no-facebook-welcome-bg"> -->
+    <!-- <div multi-bg="['http://i.giphy.com/13f7pejozPXuta.gif']" interval="3000" helper-class="no-facebook-welcome-bg"> -->
+    <div multi-bg="['img/giphy-bg-2.gif']" interval="3000" helper-class="no-facebook-welcome-bg">
+    <!-- <div multi-bg="['img/giphy-bg.gif']" interval="3000" helper-class="no-facebook-welcome-bg"> -->
+      <div class="top-content row">
+        <div class="app-copy col col-center">
+          <h1 class="app-logo">logo</h1>
+          <p class="app-tagline">
+            Your tag line
+          </p>
+        </div>
+      </div>
+      <div class="bottom-content row">
+        <div class="col col-bottom">
+          <a class="create-account button-large button button-block" ui-sref="create-account">
+            Create an account
+          </a>
+          <a class="have-account button button-clear button-block" ui-sref="welcome-back">
+            Already have an account?
+          </a>
+          <section ng-include="'views/app/legal/legal-notice.html'"></section>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

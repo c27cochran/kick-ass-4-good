@@ -1,0 +1,47 @@
+<!-- <div class="bar bar-ka4g-featured">
+    <h1 class="title">Featured Challenge</h1>
+</div> -->
+<div class="card-1 featured-card">
+  <div class="list card">
+    <div class="charity-container featured">
+      <div  class='karma-point-tag'>
+        +{{ featuredChallenge.karma }}
+      </div>
+      <div  class="charity-name featured">{{ featuredChallenge.title }}</div >
+      </div>
+      <div class="img-gradient">
+        <div class="item item-body">
+          <a ui-sref="app.challenge({ challengeId: featuredChallenge.id })" ng-click="resetAdClick()">
+            <div class="card-challenge-image-outer">
+              <pre-img  helper-class="avatar-image">
+                <img ng-src="{{ featuredChallenge.picture }}" spinner-on-load>
+              </pre-img>
+
+            </div>
+<div class="potw-banner"><div class="spacer"></div><span class="potw-text">Challenge of the Week</span></div>
+          </a>
+          <div id="frostedGlassCard" class="item item-celebrity bg-gradient">
+            <div class="card-avatar-image-outer">
+              <pre-img ratio="_1_1" helper-class="avatar-image">
+                <img ng-src="{{ featuredChallenge.user.avatar }}" spinner-on-load>
+              </pre-img>
+            </div>
+            <div  class="challenge-hash-tag">{{ featuredChallenge.hashtag }}</div >
+            </div>
+          </div>
+        </div>
+        <div class="item item-banner banner-gradient" ng-show="featuredChallenge.accepted" ng-model="card" ng-class="{completed: featuredChallenge.accepted}">
+          <p class="banner banner-accepted" >ACCEPTED</p>
+        </div>
+        <div class="item item-banner banner-gradient" ng-show="featuredChallenge.completed" ng-model="card" ng-class="{completed: featuredChallenge.completed}">
+          <p class="banner banner-completed" >COMPLETED</p>
+        </div>
+      </div>
+      <div class="challenge-stats ">
+        <div class="row">
+          <div class="col">{{ featuredChallenge.likes }} likes</div>
+          <div class="col " style="text-align: center;">{{ featuredChallenge.participants }} participants</div>
+          <div class="col"><a class="button category-button" ui-sref="app.category_feed({ categoryId: featuredChallenge.category.id })">{{ featuredChallenge.category.name }}</a></div>
+        </div>
+      </div>
+    </div>

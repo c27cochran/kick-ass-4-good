@@ -1,0 +1,211 @@
+<ion-view class="feed-view" ng-class="{'filtered-feed': (is_trend_feed || is_category_feed)}">
+  <!-- <ion-nav-title>
+    <span ng-if="is_category_feed">{{ current_category.name }} Feed</span>
+    <span ng-if="is_trend_feed">{{ current_trend.name }} Feed</span>
+    <span ng-if="!is_trend_feed && !is_category_feed">Feed</span>
+  </ion-nav-title> -->
+
+  <div class="tabs-striped tabs-top tabs-background-grey tabs-color-light">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{active: activeTab=='1'}"  ng-click="initChallengeFeed(); setActiveTab(1); scrollToTop();">
+
+        Challenges
+      </a>
+      <!-- <a class="tab-item"   ng-class="{active: activeTab=='2'}" ng-click="setOrder('user.name'); setActiveTab(2); scrollToTop();">
+
+        Celebrities
+      </a> -->
+      <a class="tab-item"   ng-class="{active: activeTab=='2'}" ng-click="getPosts(); setActiveTab(2); scrollToTop();">
+
+        Posts
+      </a>
+      <!-- <a class="tab-item"   ng-class="{active: activeTab=='3'}" ng-click="setOrder('category.name'); setActiveTab(3); scrollToTop();">
+
+        Categories
+      </a> -->
+      <a class="tab-item"   ng-class="{active: activeTab=='3'}" ng-click="getActivity(); setActiveTab(3); scrollToTop();">
+
+        Activity
+      </a>
+    </div>
+  </div>
+
+  <div class="sort-challenge-filters" ng-show="activeTab=='1'">
+    <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)"  initial-slide="0" speed="2000" loop="true" show-nav-buttons="true" pagination-is-active="false" slides-per-view="1" space-between="5" pagination-clickable="false" >
+      <ks-swiper-slide class="swiper-slide" >
+          <span class="filterText">Latest Challenges</span>
+      </ks-swiper-slide>
+      <ks-swiper-slide class="swiper-slide" >
+          <span class="filterText">Challenges by Title</span>
+      </ks-swiper-slide>
+      <ks-swiper-slide class="swiper-slide" >
+          <span class="filterText">Challenges by Popularity</span>
+      </ks-swiper-slide>
+      <ks-swiper-slide class="swiper-slide" >
+          <span class="filterText">Challenges by Celebrity</span>
+      </ks-swiper-slide>
+      <ks-swiper-slide class="swiper-slide" >
+          <span class="filterText"> Challenges by Category</span>
+      </ks-swiper-slide>
+    </ks-swiper-container>
+</div>
+    <!-- <div class="sort-challenge-filters" ng-show="activeTab=='2'">
+      <div class="item-input-inset">
+      <span class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search posts by user name..." style="width:100%"  ng-model="searchPostText.user.name" ng-change="searchPostUsers(searchPostText.user.name)">
+      </span>
+      </div>
+    </div> -->
+  <ion-content id="feed-scroll" delegate-handle="top" class='tab-bar-padding' on-scroll='getScrollPosition()'>
+
+
+    <!-- Refresh to get the new posts -->
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="getNewData()">
+    </ion-refresher>
+
+    <!-- <div ng-if="is_trend_feed || is_category_feed" class="row filtered-feed-header-outer">
+      <div ng-if="is_category_feed" class="col filtered-feed-header">
+        <div multi-bg="[current_category.image]" interval="3000" helper-class="category-with-image">
+          <div class="filtered-feed-header-content">
+            <h2 class="header-title">{{ current_category.name }}</h2>
+          </div>
+        </div>
+      </div>
+      <div ng-if="is_trend_feed" class="col filtered-feed-header">
+        <div multi-bg="[current_trend.image]" interval="3000" helper-class="category-with-image">
+          <div class="filtered-feed-header-content">
+            <h2 class="header-title">{{ current_trend.name }}</h2>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div ng-if="!is_trend_feed && !is_category_feed" ng-controller="NewPostCtrl" class="">
+      <div class="item item-avatar">
+        <div class="card-avatar-image-outer">
+          <pre-img ratio="_1_1" helper-class="avatar-image">
+            <img ng-src="{{loggedUser.picture}}" spinner-on-load>
+          </pre-img>
+        </div>
+        <a class="new-post-call-to-action" ng-click="newStatusPost()">
+          <h3 class="new-post-copy">What's on your mind -hoyt ?</h3>
+        </a>
+      </div>
+      <div class="item tabs tabs-icon-left">
+        <a class="tab-item" ng-click="newStatusPost()">
+          <i class="icon ion-edit"></i>
+          Status
+        </a>
+        <a class="tab-item" ng-click="newImageStatusPost()">
+          <i class="icon ion-camera"></i>
+          Photo
+        </a>
+        <a class="tab-item" ng-click="checkinStatusPost()">
+          <i class="icon ion-location"></i>
+          Checkin
+        </a>
+      </div>
+    </div> -->
+<!-- <div class="adclicktext">  </div> -->
+    <div ng-show="activeSubView=='feed'" class="feed-cards-outer">
+
+      <section ng-show="latest" ng-include="'views/app/partials/featured-challenge-card.html'"></section>
+
+      <div ng-if="cards.length > 0" ng-repeat="card in cards | orderBy:order" class="post-card-outer card-item">
+        <!-- <section ng-include="'views/app/partials/feed-post-card.html'" class="post-card-outer"></section> -->
+        <section ng-if="card.hidden == false" ng-include="'views/app/partials/feed-post-card.html'"></section>
+        <!-- <div ng-if="$index % 3 == 0 && $index < 2"> -->
+        <div ng-if="$index == 2">
+          <section ng-include="'views/app/partials/feed-ad-card.html'"></section>
+        </div>
+      </div>
+      <div ng-if="cards.length == 0" class="row row-center empty-feed-outer">
+        <div class="col">
+          <i class="empty-feed-icon icon ion-sad-outline"></i>
+          <h2 class="empty-feed-text">No Challenges here</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <div ng-show="activeSubView=='posts'" class="profile-posts profile-sub-view post-feed">
+      <span ng-if="no_posts == true">
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <h4 class="name">No Posts Yet</h4>
+            </div>
+          </div>
+        </div>
+      </span>
+      <span ng-if="no_posts == false">
+        <section ng-include="'views/app/partials/featured-post-card.html'" class="post-card-outer"></section>
+        <div ng-repeat="post in posts" class="profile-post-item">
+          <section ng-if="post.discard != true" ng-include="'views/app/partials/profile-post-card.html'" class="post-card-outer"></section>
+          <!-- <div ng-if="$index % 3 == 0 && $index < 2"> -->
+          <div ng-if="$index == 2">
+            <section ng-include="'views/app/partials/post-ad-card.html'"></section>
+          </div>
+        </div>
+      </span>
+    </div>
+
+    <div ng-show="activeSubView=='activity'" class="profile-activity profile-sub-view">
+      <div ng-show="activityLoading" class="acitvity-spinner">
+          <ion-spinner></ion-spinner><p>Loading activity data.</p>
+      </div>
+    <span ng-if="no_activity == true">
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <h4 class="name">No Activity Yet</h4>
+            </div>
+          </div>
+        </div>
+      </span>
+       <span ng-if="no_activity == false">
+         <ul class="list" >
+           <li class="item item-text-wrap" ng-repeat="activity in activityList | inArray:filterBy:'id'" >
+             <div class="row">
+               <div class="col col-10 col-center">
+                 <div class="user-image-outer">
+                   <pre-img ratio="_1_1" helper-class="square-image">
+                     <img class="user-image" ng-src="{{activity.avatar}}" spinner-on-load>
+                   </pre-img>
+                 </div>
+               </div>
+               <div class="col col-90 col-center">
+                 <div class="activity-listing"><strong>{{activity.name}}</strong> {{activity.verb}} the <a ui-sref="app.challenge({ challengeId: activity.challengeId })"><span class="highlight">&quot;{{activity.title}}&quot;</span></a> <br>
+                   <span class="lighter">
+                   <ng-pluralize count="activity.date"
+                      when="{'0': '(today)',
+                     '1': '(1 day ago)',
+                     'other': '({} days ago)'}">
+                    </ng-pluralize>
+                  </span>
+                   <!-- <span ng-if="activity.date > '0'"><span class="lighter">({{activity.date}} days ago)</span></span><span ng-if="activity.date == '0'"><span class="lighter">(today)</span></span> -->
+                 </div>
+               </div>
+             </div>
+              <div id="div-activity-{{$index}}" class="row activity-ad" ng-if="$index % 5 == 0 && $index < 8 && $index > 1">
+                <div class="col col-10 col-center">
+                   <div class="user-image-outer">
+                     <img class="user-image" ng-src="{{nativeAdActivity.icon.url}}">
+                   </div>
+                 </div>
+                 <div class="col col-90 col-center ad-wrap">
+                   <strong>{{nativeAdActivity.title}}</strong> {{nativeAdActivity.body}} <br>{{nativeAdActivity.socialContext}}
+                 </div>
+               </div>
+            </li>
+         </ul>
+      </span>
+    </div>
+
+    <!-- Infinit scroll -->
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%" immediate-check="false">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

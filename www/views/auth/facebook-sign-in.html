@@ -1,0 +1,84 @@
+<ion-view class="welcome-view" cache-view="false">
+  <ion-nav-bar>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <!-- <a class="button button-clear button-light" ui-sref="app.feed">
+        Skip
+      </a> -->
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <div class="splash-bg">
+      <div class="top-content row">
+        <div class="app-copy col col-center">
+          <!-- <h1 class="app-logo">logo</h1> -->
+          <!-- <p class="app-tagline">
+            Your tag line
+          </p> -->
+          <ks-swiper-container initial-slide="0" speed="2000" loop="true" show-nav-buttons="true" pagination-is-active="true" slides-per-view="1" space-between="5" pagination-clickable="false" >
+            <ks-swiper-slide class="swiper-slide" >
+                <img ng-src="http://storage.googleapis.com/f2da0dd6dfab4208b6cfc85f2ffa9da0/d4ee7f04-1dd1-49a3-a1dc-8317bb3f5955/WelcomeScreens_Slide1.png" width="100%">
+                <div class="welcome-text">
+                  <p class="heading-1">WELCOME</p>
+                  <pclass="heading-2" >Are you ready to have some fun <br> and make a difference?</p>
+                  <p class="heading-1">Let's go!</p>
+                </div>
+            </ks-swiper-slide>
+            <ks-swiper-slide class="swiper-slide" >
+                <img ng-src="http://storage.googleapis.com/f2da0dd6dfab4208b6cfc85f2ffa9da0/01a78997-bcad-44da-bd66-43e02fd51d50/Welcome_Slide2_Final.png" width="100%">
+                <div class="welcome-text">
+                  <br>
+                  <p class="heading-2" >Take a challenge, make it go viral, and earn those Karma Points! It's cool if you get internet famous in the process, just don't forget about us.</p>
+                </div>
+            </ks-swiper-slide>
+            <ks-swiper-slide class="swiper-slide" >
+                <img ng-src="http://storage.googleapis.com/f2da0dd6dfab4208b6cfc85f2ffa9da0/1892ce17-abf6-446e-ab21-baaf8943ae69/WelcomeScreens_Slide3.png" width="100%">
+                <div class="welcome-text">
+                  <br>
+                  <p class="heading-2" >Kick challenges to friends, challenge celbrities. Hell, you can even challenge the #KA4G team.</p>
+                  <p class="heading-3" >We never back down from a challenge!</p>
+                </div>
+            </ks-swiper-slide>
+            <ks-swiper-slide class="swiper-slide" >
+                <img ng-src="http://storage.googleapis.com/f2da0dd6dfab4208b6cfc85f2ffa9da0/48c57ff6-84c9-4393-a50b-6d1a79a7cf76/Welcome_Slide4_Final.png" width="100%">
+                <div class="welcome-text">
+                  <br>
+                  <p class="heading-2" >Stack up on Karma points, then donate them to your favorite cause!</p>
+                  <p class="heading-3" >You earned them, you decide who gets them!</p>
+                </div>
+            </ks-swiper-slide>
+        </ks-swiper-container>
+        </div>
+      </div>
+      <div class="bottom-content">
+
+        <div class="facebook-button">
+
+          <a class="facebook-sign-in button-large button button-block" ng-click="facebookSignIn()">
+            Sign In with Facebook
+          </a>
+        </div>
+
+          <!-- <a class="dont-have-facebook button button-clear button-block" ui-sref="create-account">
+            <p class="facebook-paragraph">Don't have Facebook?</p>
+          </a> -->
+          <!-- <p class="legal-notice">
+            <a class="" ui-sref="welcome-back">
+              Log In
+            </a>
+            &nbsp;OR&nbsp;
+            <a class="" ui-sref="create-account">
+              Create Account
+            </a>
+          </p> -->
+
+          <div class="legal-copy ">
+          <section ng-include="'views/app/legal/legal-notice.html'"></section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

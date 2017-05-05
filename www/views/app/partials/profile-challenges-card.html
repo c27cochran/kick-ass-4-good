@@ -1,0 +1,109 @@
+<!-- <div class="card-7">
+  <div class="card">
+    <div class="row card-content-wrapper">
+      <div class="col col-33 image-wrapper">
+        <a class="card-image-anchor" ui-sref="app.challenge({ challengeId: challenges.challenge.id })">
+          <pre-img ratio="_1_1" helper-class="profile-post-image">
+            <img class="post-image" ng-src="{{challenges.challenge.picture}}" spinner-on-load>
+          </pre-img>
+        </a>
+      </div>
+      <div class="col card-data">
+        <a class="card-title-outer" ui-sref="app.challenge({ challengeId: challenges.challenge.id })">
+          <h2 class="card-title">{{challenges.challenge.title}}</h2>
+        </a>
+        <div class="actions-brief">
+          <a href="#" class="subdued">{{challenges.challenge.likes}} Likes</a>
+          <a ng-controller="CommentsCtrl" ng-click="showComments(challenges.challenge)" class="subdued">{{challenges.challenge.comments}} Comments</a>
+          <a href="#" class="subdued">{{challenges.challenge.shares}} Shares</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="card-1">
+
+  <div class="list card">
+
+    <div class="charity-container">
+      <div  class='karma-point-tag'>
+        +{{ challenges.challenge.karma }}
+      </div>
+
+      <div  class="charity-name">{{ challenges.challenge.title }}</div >
+    </div>
+    <div class="img-gradient" >
+
+    <a ui-sref="app.challenge({ challengeId: challenges.challenge.id })">
+      <div class="item item-body">
+
+    </div></a>
+    <div  class="item item-celebrity bg-gradient">
+
+
+        <div class="card-avatar-image-outer">
+            <pre-img ratio="_1_1" helper-class="avatar-image">
+              <img ng-src="{{ challenges.user.avatar }}" spinner-on-load>
+            </pre-img>
+        </div>
+        <div  class="challenge-hash-tag">{{ challenges.user.hashtag }}</div >
+      </div>
+
+
+
+    </div>
+    </div>
+
+
+    <div class="challenge-stats ">
+      <div class="row">
+  <div class="col time-left"></div>
+  <div class="col col-60" style="text-align: center;">{{ challenges.challenge.participants }} participants</div>
+  <div class="col"><a class="button category-button">{{ challenges.challenge.category.name }}</a></div>
+</div>
+    </div>
+
+  </div>
+</div> -->
+
+
+
+<div class="card-1">
+  <div class="list card">
+    <div class="charity-container">
+      <div  class='karma-point-tag'>
+        +{{ challenges.challenge.karma }}
+      </div>
+      <div  class="charity-name">{{ challenges.challenge.title }}</div >
+      </div>
+      <div class="img-gradient">
+        <div class="item item-body">
+          <a ui-sref="app.challenge({ challengeId: challenges.challenge.id })" ng-click="resetAdClick()">
+            <div class="card-challenge-image-outer">
+              <pre-img  helper-class="avatar-image">
+                <img ng-src="{{ challenges.challenge.picture }}" spinner-on-load>
+              </pre-img>
+            </div>
+          </a>
+          <div id="frostedGlassCard" class="item item-celebrity bg-gradient">
+            <div class="card-avatar-image-outer">
+              <pre-img ratio="_1_1" helper-class="avatar-image">
+                <img ng-src="{{ challenges.user.avatar }}" spinner-on-load>
+              </pre-img>
+            </div>
+            <div  class="challenge-hash-tag">{{  challenges.user.hashtag }}</div >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="challenge-stats ">
+        <div class="row">
+          <div class="col time-left"></div>
+          <div class="col " style="text-align: center;">{{ challenges.challenge.participants  }} participants</div>
+          <div class="col"><a class="button category-button" ui-sref="app.category_feed({ categoryId: card.category.id })">{{ challenges.challenge.category.name  }}</a></div>
+        </div>
+      </div>
+    </div>
+  </div>

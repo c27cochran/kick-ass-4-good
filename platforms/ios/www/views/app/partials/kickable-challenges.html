@@ -1,0 +1,43 @@
+<div class="comments-list">
+	<p class="disclaimer">You can only kick challenges that you have already completed</p>
+	<span ng-if="no_kickable == true">
+		<p class="comment">No Available Challenges</p>
+	</span>
+	<div class="people-comment row" ng-repeat="challenge in challenges">
+		<div class="col col-top">
+			<div class="row user-data">
+				<div class="col col-usr-img">
+					<!-- We need a wrapper with width set for the preload image directive -->
+					<div class="user-image-outer">
+						<a ui-sref="app.challenge({ challengeId: challenge.challenge.id })">
+							<pre-img ratio="_1_1" helper-class="square-image">
+								<img class="user-image" ng-src="{{ challenge.user.avatar }}" spinner-on-load>
+							</pre-img>
+						</a>
+					</div>
+				</div>
+				<div class="col">
+					<span ng-if="no_kickable == false">
+						<p class="charity-name">
+							<a ui-sref="app.challenge({ challengeId: challenge.challenge.id })">{{ challenge.challenge.title }}</a>
+							<br>
+							{{ challenge.challenge.hashtag }}
+						</p>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<span ng-if="no_kickable == false && challenge.isAlreadyKicked != true" style="width:100%;">
+					<a class="button button-small button-outline button-block challenge-button"  ng-click="kickIt(challenge.challenge.id, challenge.challengee._id, challenge)">
+                      Challenge {{ challenge.challengee.name }}
+                    </a>
+				</span>
+				<span ng-if="no_kickable == false && challenge.isAlreadyKicked == true" style="width:100%;">
+					<a class="button button-small button-outline button-block challenge-button icon ion-checkmark-circled isAlreadyKicked" >
+											Challenge Kicked
+										</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

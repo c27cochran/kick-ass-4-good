@@ -1,0 +1,171 @@
+<ion-modal-view class="modal-view prove-it-view" ng-controller="ProveItCtrl">
+	<ion-header-bar>
+		<h1 class="title modal-title">Prove it!</h1>
+		<a class="button button-clear" ng-hide="uploading" ng-click="hideProveIt(); clearForm();"><span class="icon ion-close"></span></a>
+	</ion-header-bar>
+	<ion-content class="padding" >
+		<div class="post-card-content" delegate-handle="top">
+			<div class="charity-container">
+				<div  class="charity-name">{{ challenge.title }}</div >
+				</div>
+				<span ng-hide="uploaded">
+				<div class="row">
+					<div class="col">
+						<p><strong>Challenge:</strong> {{ challenge.description }}</p>
+					</div>
+				</div>
+				<div class="row " ng-if="!image">
+					<div class="col">
+						<a class="button button-picture button-full button-dark" ng-click="showActionSheet(challenge)"><i class="icon ion-camera"></i><br>Add Proof<p class="video-warn">(Limit is ~1 minute for videos.)</p></a>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col col-center prove-it-asset">
+						<span ng-if="type == 'image' && image">
+							<img id="imageid" ng-src="{{urlForImage(image)}}" height="200px"/>
+							<canvas id="canvas" width="640" height="640" style="display: none;"></canvas>
+						</span>
+						<span ng-if="type == 'video' && image">
+							<video width="250" ng-src="{{urlForImage(image)}}" poster="{{urlForClipThumb(image)}}"></video>
+						</span>
+					</div>
+				</div>
+				<form name="proveit_form" class="proveit_form" novalidate>
+					<div class="form-fields-outer list ">
+						<div class="row " style="padding-right: 10px; padding-left: 10px;">
+							<div class="col" style="overflow:hidden;">
+								<p class="fancy"><span>Go ahead, brag about it!</span></p>
+							</div>
+						</div>
+						<div class="row ">
+							<div class="col">
+								<label class="item item-input item-proveit">
+									<textarea rows="5" class="multi-input" type="text" placeholder="Add a caption..." name="brag" ng-model="brag"></textarea>
+								</label>
+							</div>
+						</div>
+						<!-- <div class="row ">
+							<div class="col">
+								<p class="share-text"> Share to: </p>
+							</div>
+							</div>
+						<div class="row ">
+							<div class="col col-20 col-offset-20">
+								<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareInstagram(brag, challenge.hashtag, image)"><i class="icon ion-social-instagram"></i></a>
+							</div>
+							<div class="col col-20">
+								<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareFB(brag, challenge.hashtag, challenge.handle, image, challenge.id)"><i class="icon ion-social-facebook"></i></a>
+								</div>
+								<div class="col col-20">
+								<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareTwitter(brag, challenge.hashtag, challenge.handle, image, challenge.id)"><i class="icon ion-social-twitter"></i></a>
+								</div>
+							</div> -->
+						</div>
+						<div class="row ">
+							<div class="col" ng-if="image">
+								<!-- <button type="submit" class="button button-block button-proveit" ng-click="addBrag(challenge, brag, image)" ng-disabled="proveit_form.$invalid"> -->
+
+								<button type="submit" ng-hide="uploading" class="button button-block button-proveit" ng-click="addBrag(challenge, brag, image)">
+									Prove It
+								</button>
+								<div ng-show="uploading" class="upload-spinner">
+									<ion-spinner></ion-spinner><p>Upload in progress. Please wait.</p>
+								</div>
+							</div>
+							<p ng-show="error" class="message error">{{error}}</p>
+
+						</div>
+				</form>
+			</span>
+			<span ng-show="uploaded" class="proveit_form people-view">
+				<p class="congratulations">Congratulations, challenge completed!</p>
+				<!-- <div class="row">
+					<div class="col col-center prove-it-asset">
+						<span ng-if="type == 'image' && image">
+							<img id="imageid" ng-src="{{urlForImage(image)}}" height="200px"/>
+							<canvas id="canvas" width="640" height="640" style="display: none;"></canvas>
+						</span>
+						<span ng-if="type == 'video' && image">
+							<video width="250" ng-src="{{urlForImage(image)}}" poster="{{urlForClipThumb(image)}}"></video>
+						</span>
+					</div>
+				</div> -->
+				<p class="earn">Now earn more karma points.</p>
+				<p class="fancy"><span>Share your accomplishment</span></p>
+				<div class="row ">
+					<div class="col col-20 col-offset-20">
+						<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareInstagram(brag, challenge.hashtag, image)"><i class="icon ion-social-instagram"></i></a>
+					</div>
+					<div class="col col-20">
+						<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareFB(brag, challenge.hashtag, challenge.handle, image, challenge.id)"><i class="icon ion-social-facebook"></i></a>
+						</div>
+						<div class="col col-20">
+						<a class="button button-sharesocial" ng-disabled="uploading" on-touch="shareTwitter(brag, challenge.hashtag, challenge.handle, image, challenge.id)"><i class="icon ion-social-twitter"></i></a>
+						</div>
+					</div>
+				<p class="fancy"><span>Challenge your friends</span></p>
+
+				<div class="suggested-people-list">
+
+					<span ng-if="no_kickable == true">
+						<p class="comment">No kickable friends available for this challenge.  Go ahead and <a class="invite-link" ng-click="inviteFriendsKicked()">invite</a> some by tagging them in a post!</p>
+					</span>
+
+
+
+
+
+
+					<div class="suggested-people row" ng-repeat="people in kickablePeople">
+            <div class="container">
+            <div class="col col-center col-user-image">
+              <!-- We need a wrapper with width set for the preload image directive -->
+              <div class="user-image-outer">
+                <a >
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{people.avatar}}" spinner-on-load>
+                  </pre-img>
+                </a>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <a class="name" >{{ people.name }}</a>
+                </div>
+
+                  <div class="action-col col-center">
+										<span ng-if="people.isAlreadyKicked != true" style="width:100%;">
+											<a class="button button-small button-outline button-block follow-button"  ng-click="kickIt(challenge.id, people._id, people)">
+																	Kick This Challenge
+											</a>
+											</span>
+											<span ng-if="people.isAlreadyKicked == true" style="width:100%;">
+											<a class="button button-small button-outline button-block icon-left ion-checkmark-circled follow-button isAlreadyKicked" >
+																	Challenge Kicked
+											</a>
+										</span>
+                  </div>
+
+              </div>
+            </div>
+            </div>
+          </div>
+					<p class="disclaimer">You can only kick challenges that your friends have not already completed.</p>
+
+
+
+
+
+
+
+				<button class="button button-block button-proveit" ng-click="closeProveIt()">
+					Done
+				</button>
+
+			</span>
+			</div>
+			</div>
+</ion-content>
+</ion-modal-view>

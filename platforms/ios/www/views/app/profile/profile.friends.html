@@ -1,0 +1,67 @@
+<!-- <ion-view class="profile-friends profile-sub-view">
+
+
+
+<ul class="list">
+    <a ng-if="user.friends.length > 0" ng-repeat="friend in user.friends" class="item" href="#">
+      <div class="user-image-outer">
+        <pre-img ratio="_1_1" helper-class="rounded-image">
+          <img class="user-image-cover" ng-src="{{friend.picture.data.url}}" spinner-on-load>
+        </pre-img>
+      </div>
+      {{friend.name}}
+    </a>
+</ul>
+    <div ng-if="cuser.friends.length == 0" class="row row-center empty-feed-outer">
+      <div class="col">
+        <i class="empty-feed-icon icon ion-sad-outline"></i>
+        <h2 class="empty-feed-text">No friends here</h2>
+      </div>
+    </div>
+</ion-view> -->
+
+
+
+<ion-view class="profile-friends profile-sub-view">
+  <ion-list class="friends-list" can-swipe="true" delegate-handle="friends-list">
+    <ion-item class="friends-item item-avatar" ng-repeat="friend in user.friends">
+      <div class="item-content-wrapper">
+        <div class="user-image-outer">
+        <!-- <a ui-sref="app.profile.challenges({userId: friend.userData._id})"> -->
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <img class="user-image" ng-src="{{friend.picture.data.url}}" spinner-on-load>
+          </pre-img>
+          <!-- </a> -->
+        </div>
+        <div class="row contact-main first-row">
+          <div class="col col-67 contact-description">
+            <!-- <a class="name" ui-sref="app.profile.challenges({userId: friend.userData._id})">-->
+            <a class="name" href="#">{{friend.name}}</a>
+            <!-- </a> -->
+          </div>
+          <!--<div class="col contact-actions">
+             <button ng-if="follower.follow_back" class="action-button button button-outline active button-small button-block" trigger-unfollow>
+              Following
+            </button>
+            <button ng-if="!follower.follow_back" class="action-button button button-outline button-small button-block" ng-click="follow(contact)">
+              Follow
+            </button>
+          </div>-->
+          <div class="item-icon-right" href="#">
+<div class="circle-bg">
+                    <i class="icon ion-arrow-right-c"></i>
+                    </div>
+                  </div>
+        </div>
+        <!-- <div class="row contact-main">
+          <div class="col contact-description">
+             <p class="about-user">{{follower.userData.about}}</p>
+          </div>
+        </div> -->
+
+      </div>
+      <!-- <ion-option-button ng-if="follower.follow_back" class="unfollow-button" ng-click="remove(contact)">Unfollow</ion-option-button> -->
+
+    </ion-item>
+  </ion-list>
+</ion-view>

@@ -1,0 +1,39 @@
+// App - Profile (generic styles)
+$profile-user-content-bg: $theme-color-1;
+$profile-user-content-color: $theme-color-2;
+$profile-user-content-active-color: $theme-color-3;
+
+// Outline button
+// $profile-user-content-button-bg: $theme-color-2-d;
+
+// Colored button
+$profile-user-content-button-bg:               $theme-color-7;
+$profile-user-content-button-text:             $theme-color-1;
+$profile-user-content-button-border:           darken($profile-user-content-button-bg, 10%);
+$profile-user-content-button-active-bg:        darken($profile-user-content-button-bg, 10%);
+$profile-user-content-button-active-border:    darken($profile-user-content-button-bg, 10%);
+
+$profile-user-content-actions-bg: $theme-color-1-b;
+$profile-user-content-actions-color: $theme-color-2-d;
+
+$profile-subviews-bg: $theme-color-1-a;
+
+$profile-user-img-ratio: 1 1;
+$pre-img-ratios: append($pre-img-ratios, $profile-user-img-ratio);
+
+// Profile Cards (user posts)
+$card-7-color: $theme-color-2;
+
+// Profile Gallery (user pictures)
+$profile-gallery-default-item-bg: $theme-color-1-c;
+
+// Profile Contacts (following and followers lists)
+$profile-contacts-action-button-bg: $theme-color-3;
+$profile-contacts-unfollow-button-bg: $theme-color-5;
+$profile-contacts-unfollow-button-color: $theme-color-1;
+
+// Settings
+$settings-page-divider-bg: $theme-color-1-b;
+$settings-page-divider-color: $theme-color-2;
+$settings-page-bg: $theme-color-1-a;
+$settings-page-color: $theme-color-2-b;

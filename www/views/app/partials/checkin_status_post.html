@@ -1,0 +1,37 @@
+<ion-modal-view class="checkin-status-post-view">
+  <ion-header-bar class="bar-positive">
+		<div class="buttons">
+	    <button class="button button-clear" ng-click="closeCheckInModal()">Cancel</button>
+	  </div>
+	  <h1 class="title">Check In</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="row google-search-bar">
+      <div class="col">
+        <div class="list list-inset">
+          <label class="item item-input search-box">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input ng-model="search.input" type="text" placeholder="Search" ng-change="getPlacePredictions(search.input)"/>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div ng-show="predictions.length > 0" class="row search-results">
+      <div class="col">
+        <div class="list location-results-list">
+          <a ng-repeat="prediction in predictions" class="item item-icon-left location-item" ng-click="selectSearchResult(prediction)">
+            <i class="icon ion-location"></i>
+            <h3 class="location-name">{{prediction.terms[0].value}}</h3>
+            <span class="location-desc">{{prediction.description}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div ng-hide="predictions.length > 0" class="row row-center no-results">
+      <div class="col">
+        <i class="search-hint-icon icon ion-ios-search"></i>
+        <h2 class="search-hint-text">Search to Find Places</h2>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

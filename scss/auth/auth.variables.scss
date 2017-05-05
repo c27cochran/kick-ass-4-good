@@ -1,0 +1,34 @@
+// Modal
+$modal-bg: $theme-color-1-a;
+$modal-color: $theme-color-2-b;
+
+// Welcome
+$welcome-bg: $theme-color-1-a;
+$welcome-color: $theme-color-14;
+$welcome-color-link: $theme-color-5;
+$welcome-create-account-bg: $theme-color-9;
+$welcome-create-account-color: $theme-color-1;
+$welcome-facebook-sign-in-color: $theme-color-1;
+$welcome-facebook-sign-in-bg: $theme-color-4;
+
+// Auth
+$error-color: $theme-color-5;
+$auth-bg: $theme-color-12;
+$auth-color: $theme-color-14;
+$facebook-blue: #294886;
+$button-facebook-bg:               $facebook-blue;
+$button-facebook-text:             $theme-color-1;
+$button-facebook-border:           darken($facebook-blue, 10%);
+$button-facebook-active-bg:        darken($facebook-blue, 10%);
+$button-facebook-active-border:    darken($facebook-blue, 10%);
+
+$twitter-blue: #00a3dc;
+$button-twitter-bg:               $twitter-blue;
+$button-twitter-text:             $theme-color-1;
+$button-twitter-border:           darken($twitter-blue, 10%);
+$button-twitter-active-bg:        darken($twitter-blue, 10%);
+$button-twitter-active-border:    darken($twitter-blue, 10%);
+
+
+$separator-mark-width: 70px;
+$separator-mark-height: 30px;

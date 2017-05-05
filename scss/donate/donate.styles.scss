@@ -1,0 +1,171 @@
+.donate-view
+{
+  background: $theme-color-10;
+
+  .profile-details-section
+  {
+    position: relative;
+    top:0px;
+    background-color: $profile-user-content-bg;
+    &.profile-tabs{
+      border: 0;
+      border-bottom: 5px solid $theme-color-10;
+      height:50px;
+      .tabs{
+        // bottom:auto;
+        // padding-left: 10px;
+        // padding-right: 10px;
+      }
+    }
+    &:first-child
+    {
+      //padding-top: 40px;
+    }
+  }
+  .people-view{
+    padding-top: 0px;
+  }
+  .bar-ka4g{
+    background-color: $theme-color-12;
+    color: $theme-color-11;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+    h1{
+      color: $theme-color-11;
+    }
+  }
+  .explain{
+    padding:20px 15px 0px 15px;
+    border-bottom: 10px solid $theme-color-12;
+  }
+  hr{
+
+  }
+  .row.pt-display {
+    &.big-points{
+      padding-left: 0px;
+      padding-right: 0px;
+      .col{
+        font-size:25px;
+        height:55px;
+        line-height: 45px;
+      }
+
+    }
+    .col{
+      text-align: center;
+      &.pink{
+        color: $theme-color-11 ;
+      }
+      &.divider{
+        border-right: 5px solid white;
+      }
+      &.blue-bg{
+        background-color: $theme-color-12 ;
+      }
+    }
+  }
+  .item-divider
+  {
+    text-transform: uppercase;
+    padding-top: 16px;
+    padding-bottom: 4px;
+    padding-left:10px !important;
+    // color: $theme-color-11;
+    background-color: $theme-color-12;
+    border: none;
+    // border-top-color:$theme-color-10;
+    // border-bottom-color:$theme-color-11;
+    font-size:16px;
+    margin-bottom: 1px;
+    margin-top: -2px  !important;
+  }
+  .item.charity-item{
+border:1px solid white;
+    padding:0px;
+    .charity-row{
+      border-bottom: 1px dashed rgba(255,48,95,0.5) !important;
+      font-size: 13px;
+      color: $theme-color-14;
+      a{
+        &.charity-link{
+      color: $theme-color-14;
+      text-decoration: underline;
+        }
+      }
+      .small-points{
+        font-size: 10px;
+      }
+      .button-add{
+        font-size: 10px;
+        min-height:25px;
+        padding-left:7px;
+        padding-right:7px;
+        line-height:30px;
+        border-radius: 500px;
+        border: 1px solid $theme-color-11;
+        background-color: #fff;
+        color: $theme-color-11;
+      }
+
+    }
+    .edit-row{
+      padding-left: 0px;
+      padding-right: 0px;
+
+      .col{
+        padding-left: 0px;
+        padding-right: 0px;
+        .big-points{
+          font-size:20px;
+          font-weight:bold;
+        }
+      .range-positive{
+        // margin-left: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: $theme-color-12;
+      }
+  }
+    }
+    .ui-row{
+      .button-donate{
+        width:100%;
+        font-size: 13px;
+        min-height:25px;
+        padding-left:7px;
+        padding-right:7px;
+        line-height:30px;
+        border-radius: 500px;
+        // border: 1px solid $theme-color-11;
+        background-color: $theme-color-11;
+        color: $theme-color-10;
+      }
+      .button-cancel{
+        width:100%;
+        font-size: 13px;
+        min-height:25px;
+        padding-left:7px;
+        padding-right:7px;
+        line-height:30px;
+        border-radius: 500px;
+        // border: 1px solid $theme-color-11;
+        background-color: $theme-color-13;
+        color: $theme-color-10;
+      }
+    }
+  }
+  .item{
+    padding: 5px;
+    // margin: 0px;
+    .item{
+      border:none;
+      //  padding: 0px !important;
+      &.range-ka4g{
+
+      }
+    }
+  }
+}

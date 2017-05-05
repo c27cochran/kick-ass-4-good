@@ -1,0 +1,57 @@
+.card.new-post
+{
+  margin: 20px 8px;
+
+  // $item-avatar-width is an ionic sass variable
+  .item-avatar
+  {
+    padding: 0px $new-post-card-padding $new-post-card-padding ($item-avatar-width + $new-post-card-padding*2);
+    border-top: none;
+    border-bottom: none;
+    margin-top: $new-post-card-padding;
+    min-height: ($item-avatar-width + $new-post-card-padding);
+
+    .card-avatar-image-outer
+    {
+      width: $item-avatar-width;
+      position: absolute;
+      top: 0px;
+      left: $new-post-card-padding;
+
+      img
+      {
+        max-width: $item-avatar-width;
+        max-height: $item-avatar-width;
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .new-post-call-to-action
+  {
+    .new-post-copy
+    {
+      height: $item-avatar-width;
+      line-height: $item-avatar-width;
+      font-size: 16px;
+      font-weight: 400;
+      color: $new-post-card-color;
+    }
+  }
+
+  @include cardActionTabs($new-post-card-actions-bg, $new-post-card-actions-color);
+
+  .item.tabs
+  {
+    background-image: none;
+
+    .tab-item
+    {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}

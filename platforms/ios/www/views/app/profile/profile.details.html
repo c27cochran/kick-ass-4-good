@@ -1,0 +1,613 @@
+<ion-view class="profile-details">
+
+  <div class="profile-banner" ng-class="{smallHeader: smallHeader}">
+
+    <div class="row user-images"  style="background-image: url({{user.cover ? user.cover : 'img/default-cover.png'}}); background-repeat: no-repeat;
+    background-size: cover;  background-position: 0 {{user.offset_y}}%; height: 200px; width:100%;" >
+    <div class='profile-flex'>
+      <div class=" user-pic-container">
+        <!-- We need a wrapper with width set for the preload image directive -->
+        <div class="user-image-outer">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image-cover" ng-src="{{user.avatar}}" spinner-on-load>
+          </pre-img>
+        </div>
+      </div>
+      <div class="user-name-container">
+        <h4 class="user-name">{{user.name}}</h4>
+      </div>
+      <!-- <div ng-if="this_is_me == false" class="user-report-button">
+        <a class="button button-icon icon ion-android-more-vertical" ng-click="showActionSheetUser(user._id)"></a>
+      </div> -->
+      <div class="user-points-container">
+        <span ng-if="this_is_me == false">
+          <div class="points"><span class="point-total">{{karmaPoints | nearestK}} </span><br><span class="point-text">Karma Points</span></div>
+        </span>
+        <span ng-if="this_is_me == true">
+          <div class="points"><span class="point-total">{{myKarmaPoints | nearestK}} </span><br><span class="point-text">Karma Points</span></div>
+        </span>
+      </div>
+    </div>
+
+    <div class="row profile-details-section profile-tabs">
+      <div class="tabs-striped tabs-background-grey tabs-color-light">
+        <div class="tabs">
+          <a class="tab-item" ng-class="{active: activeTab=='1'}" ng-click="setActiveTab(1); getUserPosts()">
+            Posts
+          </a>
+          <a class="tab-item" ng-class="{active: activeTab=='2'}" ng-click="setActiveTab(2); getUserChallenges()">
+            Challenges
+          </a>
+          <a class="tab-item " ng-class="{active: activeTab=='3'}" ng-click="setActiveTab(3); getUserFriends()">
+            Contacts
+          </a>
+          <a class="tab-item" ng-class="{active: activeTab=='4'}" ng-click="setActiveTab(4); getUserLeaderboard()">
+            Leaderboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- <div ng-if="this_is_me == false" > -->
+      <!-- <div class="row"> -->
+        <div ng-if="this_is_me == false" class="col col-50 col-center">
+          <a class="button button-small button-outline button-block follow-user-button"  ng-click="showActionSheetUser(user._id)">
+            Report/Block User
+          </a>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div ng-if="this_is_me == false && alreadyFollowing == false"> -->
+      <!-- <div class="row"> -->
+        <div ng-if="this_is_me == false && alreadyFollowing == false && private == false" class="col col-50 col-center">
+          <a class="button button-small button-outline button-block follow-user-button" ng-click="followUser('{{user._id}}')">
+            Follow
+          </a>
+        </div>
+
+        <div ng-if="this_is_me == false && alreadyFollowing == false && private == true && followRequested == false" class="col col-50 col-center">
+          <a class="button button-small button-outline button-block follow-user-button" ng-click="requestFollowUser('{{user._id}}')">
+            Request Follow
+          </a>
+        </div>
+
+        <div ng-if="this_is_me == false && alreadyFollowing == false && private == true && followRequested == true" class="col col-50 col-center">
+          <a class="button button-small button-outline button-block button-fill follow-user-button" ng-click="removeRequest('{{user._id}}')">
+            Remove Follow Request
+          </a>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div ng-if="this_is_me == false && alreadyFollowing == true"> -->
+      <!-- <div class="row"> -->
+        <div ng-if="this_is_me == false && alreadyFollowing == true" class="col col-50 col-center">
+          <a class="button button-small button-outline button-block follow-user-button" ng-click="unFollowUser('{{user._id}}')">
+            Unfollow
+          </a>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+<!--   <div ng-if="this_is_me == false && followRequest == true">
+    <div class="row">
+      <div class="col col-center">
+          Now Following!
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-if="this_is_me == false && unFollowRequest == true">
+    <div class="row">
+      <div class="col col-center">
+          Unfollowing
+      </div>
+    </div>
+  </div>
+</div> -->
+<div ng-show="this_is_me">
+<div ng-show="contactsActive" class="item-input-inset" >
+    <span class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search all users..." style="width:100%" ng-change="searchChange(searchText.name.length)" ng-model="searchText.name">
+      <!-- <button ng-click="searchText.name = ''" ng-show="searching" class="button button-clear icon ion-close-circled input-button button-small" style="padding-right:0px;">
+          </button> -->
+    </span>
+
+
+</div>
+</div>
+<ion-scroll id="profile-scroll" on-scroll='getScrollPosition()' zooming="false" direction="y" style="height: 510px">
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+</ion-refresher>
+  <div style="height: 100%" ng-if="private == true">
+    <h3 style="text-align: center;"><span class="icon ion-locked"></span> &nbsp;Private Account</h3>
+  </div>
+  <div style=" height: 100%" ng-if="private == false">
+<div ng-show="activeSubView=='friends'" class="people-view">
+
+  <div ng-if="this_is_me == true && followRequest == true">
+    <div class="row">
+      <div class="col col-center">
+          Now Following!
+      </div>
+    </div>
+  </div>
+
+<div ng-show="searching" >
+  <!-- <div style="height:100%;"> -->
+  <div class="item item-divider">
+    Search Results
+  </div>
+  <div ng-show="(allUsers | filter:searchText.name).length == 0" style="padding:10px;">
+    No users match your search.
+  </div>
+  <div class="suggested-people-list">
+  <div class="suggested-people row" ng-repeat="searchuser in allUsers | filter:searchText ">
+
+    <div class="container">
+    <div class="col col-center col-user-image">
+      <!-- We need a wrapper with width set for the preload image directive -->
+      <div class="user-image-outer">
+        <a ui-sref="app.profile.challenges({userId: searchuser._id})">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <img class="user-image" ng-src="{{searchuser.avatar}}" spinner-on-load>
+          </pre-img>
+        </a>
+      </div>
+    </div>
+    <div class="col col-center">
+      <div class="row user-data">
+        <div class="col">
+          <a class="name" ui-sref="app.profile.challenges({userId: searchuser._id})" >{{searchuser.name}}</a>
+          <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+        </div>
+        <div ng-if="this_is_me == true" >
+          <div class="action-col col-center">
+        <!-- <span ng-if="user.alreadyFollowing == false || user.alreadyFollowing == undefined"> -->
+          <a ui-sref="app.profile.challenges({userId: searchuser._id})" class="button button-small button-outline button-block follow-button" >
+            Profile
+          </a>
+        <!-- </span> -->
+        <!-- <span ng-if="user.alreadyFollowing == true">
+          <div class="button button-small button-clear button-block follow-button" ng-disabled="user.alreadyFollowing">
+            Already Following
+          </div>
+        </span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>
+<div >
+
+      <div ng-if="no_requests == false" class="item item-divider">
+        New Follow Requests!
+      </div>
+
+      <span ng-if="no_requests == false">
+          <div class="suggested-people row" ng-repeat="follow in followRequest">
+            <div class="container">
+            <div class="col col-center col-user-image">
+              <!-- We need a wrapper with width set for the preload image directive -->
+              <div class="user-image-outer">
+                <a ui-sref="app.profile.challenges({userId: follow.userData._id})">
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{follow.userData.avatar}}" spinner-on-load>
+                  </pre-img>
+                </a>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <a class="name" ui-sref="app.profile.challenges({userId: follow.userData._id})">{{follow.userData.name}}</a>
+                  <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+                </div>
+                <div ng-if="this_is_me == true && followAllow == false">
+                  <div class="action-col col-center">
+                    <a class="icon ion-checkmark-round" ng-click="allowFollow('{{follow.userData._id}}')" style="color: #04b566; font-size: 28px;">
+
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a class="icon ion-close-round" ng-click="denyFollow('{{follow.userData._id}}')" style="color: #e40d16; font-size: 28px;">
+
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+                <div ng-if="this_is_me == true && followAllow == true && alreadyFollowing == false">
+                  <div class="action-col col-center">
+                    <a class="button button-small button-outline button-block follow-button" ng-click="followBack('{{follow.userData._id}}')">
+                      Follow Back!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </span>
+
+      <div class="item item-divider">
+        Following - {{ followingCount }}
+      </div>
+
+      <!-- <div class="suggested-people-list">
+        <div class="suggested-people row" ng-repeat="fb_friend in fb_friends">
+          <div class="col col-center col-user-image">
+
+            <div class="user-image-outer">
+              <a ui-sref="app.profile.challenges({userId: fb_friend.uid})">
+                <pre-img ratio="_1_1" helper-class="square-image">
+                  <img class="user-image" ng-src="{{fb_friend.picture.data.url}}" spinner-on-load>
+                </pre-img>
+              </a>
+            </div>
+          </div>
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <a class="name" ui-sref="app.profile.challenges({userId: fb_friend.uid})">{{fb_friend.name}}</a>
+              </div>
+              <div class="action-col col-center">
+                <a class="button button-small button-outline button-block follow-button" ui-sref="app.profile.challenges({userId: fb_friend.uid})">
+                  Profile
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="suggested-people-list">
+        <span ng-if="no_following == true">
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <h4 class="name">Not Following Anyone Yet</h4>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span ng-if="no_following == false">
+          <div class="suggested-people row" ng-repeat="follow in following">
+            <div class="container">
+            <div class="col col-center col-user-image">
+              <!-- We need a wrapper with width set for the preload image directive -->
+              <div class="user-image-outer">
+                <a ui-sref="app.profile.challenges({userId: follow.userData._id})">
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{follow.userData.avatar}}" spinner-on-load>
+                  </pre-img>
+                </a>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+
+                  <a class="name" ui-sref="app.profile.challenges({userId: follow.userData._id})">{{follow.userData.name}}</a>
+                  <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+                </div>
+                <div ng-if="this_is_me == true">
+                  <div class="action-col col-center">
+                    <a class="button button-small button-outline button-block follow-button" ng-click="showKickable(follow.userData._id)">
+                      Kick A Challenge
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </span>
+      </div>
+
+      <div class="item item-divider">
+        Followers - {{ followerCount }}
+      </div>
+
+      <div class="suggested-people-list">
+        <span ng-if="no_followers == true">
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <h4 class="name">No Followers Yet</h4>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span ng-if="no_followers == false">
+          <div class="suggested-people row" ng-repeat="follow in followers">
+            <div class="container">
+            <div class="col col-center col-user-image">
+              <!-- We need a wrapper with width set for the preload image directive -->
+              <div class="user-image-outer">
+                <a ui-sref="app.profile.challenges({userId: follow.userData._id})">
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{follow.userData.avatar}}" spinner-on-load>
+                  </pre-img>
+                </a>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <a class="name" ui-sref="app.profile.challenges({userId: follow.userData._id})">{{follow.userData.name}}</a>
+                  <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+                </div>
+                <!-- <div ng-if="this_is_me == true">
+                  <div class="action-col col-center">
+                    <a class="button button-small button-outline button-block follow-button" ng-click="followUser('{{follow.userData._id}}')">
+                      Follow Back
+                    </a>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            </div>
+          </div>
+        </span>
+      </div>
+
+    <!-- <div ng-if="this_is_me == true">
+      <div class="item item-divider">
+        Invite Your Friends
+      </div>
+
+      <div class="suggested-people-list">
+        <span ng-if="no_invites == true">
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <h4 class="name">Woohoo! All your friends have joined!</h4>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span ng-if="no_invites == false">
+          <div class="suggested-people row" ng-repeat="fb_invite in fb_invites">
+            <div class="container">
+            <div class="col col-center col-user-image">
+              <div class="user-image-outer">
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{fb_invite.picture.data.url}}" spinner-on-load>
+                  </pre-img>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <p>{{fb_invite.name}}</p>
+                </div>
+                <div class="action-col col-center">
+                  <a ng-click="shareFB(fb_invite.name)" class="button button-small button-outline button-block follow-button">
+                    Invite
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="suggested-people row">
+            <div ng-if="fb_invites_previous" class="action-col col-25" style="padding-left: 5px;">
+              <a ng-click="next(fb_invites_previous);" class="button button-small button-outline button-block follow-button"><i class="icon ion-chevron-left" style="float:left;margin-top: 2px;"></i>  Previous</a>
+            </div>
+            <div ng-if="!fb_invites_previous" class="action-col col-25" style="padding-right: 5px;"></div>
+            <div class="col-50"></div>
+            <div class="action-col col-25" style="padding-right: 5px;">
+              <a ng-click="next(fb_invites_next);" class="button button-small button-outline button-block follow-button">Next <i class="icon ion-chevron-right" style="float:right;margin-top: 2px;"></i></a>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div> -->
+
+      <!-- <div class="item item-divider">
+        People Suggestions
+      </div>
+
+      <div class="suggested-people-cards">
+        <div class="suggested-people card" ng-repeat="suggestion in people_suggestions">
+          <div class="row">
+            <div class="col col-center col-user-image">
+
+              <div class="user-image-outer">
+                <a ui-sref="app.profile.challenges({userId: suggestion.user._id})">
+                  <pre-img ratio="_1_1" helper-class="square-image">
+                    <img class="user-image" ng-src="{{suggestion.user.avatar}}" spinner-on-load>
+                	</pre-img>
+                </a>
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="row user-data">
+                <div class="col">
+                  <a class="username" ui-sref="app.profile.challenges({userId: suggestion.user._id})">{{suggestion.user.username}}</a>
+                  <span class="name">{{suggestion.user.name}}</span>
+                </div>
+                <div class="action-col">
+                  <a class="button button-small button-outline hide-button">
+                    Hide
+                  </a>
+                  <a class="button button-small button-outline follow-button">
+                    Follow
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row user-related-content">
+
+          </div>
+          <div class="row user-relation">
+            <div class="col">
+              <span class="relation">{{suggestion.connection}}</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="item item-divider">
+        People You May Know
+      </div>
+
+      <div class="suggested-people-list">
+        <div class="suggested-people row" ng-repeat="person in people_you_may_know">
+          <div class="container">
+          <div class="col col-center col-user-image">
+            <div class="user-image-outer">
+              <a ui-sref="app.profile.challenges({userId: person.user._id})">
+                <pre-img ratio="_1_1" helper-class="square-image">
+                  <img class="user-image" ng-src="{{person.user.avatar}}" spinner-on-load>
+                </pre-img>
+              </a>
+            </div>
+          </div>
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <a class="name" ui-sref="app.profile.challenges({userId: person.user._id})">{{person.user.name}}</a>
+                <span class="brief-info">{{person.mutual_friends}} mutual friends</span>
+              </div>
+              <div class="action-col col-center">
+                <a class="button button-small button-outline button-block follow-button">
+                  Follow
+                </a>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div> -->
+</div>
+</div>
+
+
+<div ng-show="activeSubView=='challenges'" class="profile-challenges profile-sub-view">
+  <span ng-if="no_kicked_challenges == false">
+  <div class="item item-divider-fancy"><span class="fancy-span">Kicked Challenges: <span class="badge-kicked">{{kickedChallenges.length}}</span></span></div>
+    <div ng-repeat="challenges in kickedChallenges" class="profile-post-item feed-view">
+      <section ng-include="'views/app/partials/profile-kicked-challenges-card.html'" class="post-card-outer card-item"></section>
+    </div>
+  </span>
+  <div class="item item-divider">Active Challenges: {{activeChallenges.length}}</div>
+  <span ng-if="no_active_challenges == true">
+    <div class="col col-center">
+      <div class="row user-data">
+        <div class="col">
+          <h4 class="name">No Active Challenges</h4>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span ng-if="no_active_challenges == false">
+    <div ng-repeat="challenges in activeChallenges" class="profile-post-item feed-view">
+      <section ng-include="'views/app/partials/profile-challenges-card.html'" class="post-card-outer card-item"></section>
+      <div ng-if="$index == 1">
+        <section ng-include="'views/app/partials/profile-feed-ad-card.html'"></section>
+      </div>
+    </div>
+  </span>
+  <div class="item item-divider">Completed Challenges : {{completedChallenges.length}}</div>
+  <span ng-if="no_completed_challenges == true">
+    <div class="col col-center">
+      <div class="row user-data">
+        <div class="col">
+          <h4 class="name">No Completed Challenges</h4>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span ng-if="no_completed_challenges == false">
+    <div ng-repeat="challenges in completedChallenges" class="profile-post-item feed-view">
+      <section ng-include="'views/app/partials/profile-comp-challenges-card.html'" class="post-card-outer card-item"></section>
+    </div>
+  </span>
+</div>
+
+
+
+
+<div ng-show="activeSubView=='posts'" class="profile-posts profile-sub-view">
+    <span ng-if="!posts">
+      <div class="col col-center">
+        <div class="row user-data">
+          <div class="col">
+            <h4 class="name">No Posts Yet</h4>
+          </div>
+        </div>
+      </div>
+    </span>
+    <span ng-if="posts">
+      <div ng-repeat="post in posts" class="profile-post-item">
+        <section ng-include="'views/app/partials/profile-post-card.html'" class="post-card-outer"></section>
+      </div>
+      <div class="people-view">
+        <div id="div-profile-post-2" class="row activity-ad">
+          <div class="col col-10 col-center">
+             <div class="user-image-outer">
+               <img class="user-image" ng-src="{{nativeAdPost.icon.url}}">
+             </div>
+           </div>
+           <div class="col col-90 col-center ad-wrap">
+             <strong>{{nativeAdPost.title}}</strong> {{nativeAdPost.body}} <br>{{nativeAdPost.socialContext}}
+           </div>
+         </div>
+       </div>
+      <!-- Infinit scroll -->
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="2%" immediate-check="false">
+      </ion-infinite-scroll>
+    </span>
+</div>
+
+
+
+<div ng-show="activeSubView=='leaderboard'" class="people-view profile-sub-view">
+  <div class="suggested-people-list">
+    <div id="div-leaderboard-2" class="row activity-ad">
+      <div class="col col-10 col-center">
+         <div class="user-image-outer">
+           <img class="user-image" ng-src="{{nativeAdLeaderboard.icon.url}}">
+         </div>
+       </div>
+       <div class="col col-90 col-center ad-wrap">
+         <strong>{{nativeAdLeaderboard.title}}</strong> {{nativeAdLeaderboard.body}} <br>{{nativeAdLeaderboard.socialContext}}
+       </div>
+     </div>
+    <div class="suggested-people row" ng-repeat="leader in leaderboard">
+      <div class="container">
+      <div class="col col-center col-user-image">
+        <!-- We need a wrapper with width set for the preload image directive -->
+        <div class="user-image-outer">
+          <a ui-sref="app.profile.challenges({userId: leader._id})">
+            <pre-img ratio="_1_1" helper-class="square-image">
+              <img class="user-image" ng-src="{{leader.avatar}}" spinner-on-load>
+            </pre-img>
+          </a>
+        </div>
+      </div>
+      <div class="col col-center">
+        <div class="row user-data">
+          <div class="col">
+            <a ui-sref="app.profile.challenges({userId: leader._id})" class="name">{{leader.name}}</a>
+          </div>
+          <div class="action-col col-center">
+            <!-- <a class="button button-small button-outline button-block follow-button">
+              + Invite
+            </a> -->
+            <p>{{leader.karma}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br><br><br><br><br>
+</ion-scroll>
+</ion-view>

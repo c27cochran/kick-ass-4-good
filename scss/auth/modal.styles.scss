@@ -1,0 +1,197 @@
+.modal-view.legal-view
+{
+  background-color: $modal-bg;
+
+  ion-header-bar
+  {
+    background-color: $theme-color-11 !important;
+  }
+
+  .modal-title
+  {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .button-clear {
+    color: #fff;
+  }
+}
+
+
+.modal-view.prove-it-view
+{
+  background-color: $theme-color-10;
+
+  ion-header-bar
+  {
+    background-color: $theme-color-10 !important;
+  }
+
+  .modal-title
+  {
+    color:  $theme-color-11 ;
+    font-size: 22px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .post-card-content
+  {
+    padding-bottom: 20px;
+    background-color:$theme-color-10;
+    .charity-container{
+      display:table;
+      background-color: $theme-color-12;
+      width:100%;
+      border-radius: 2px 2px 0px 0px;
+
+      .charity-name {
+        text-align: center;
+        font-size: 14px;
+        color: $theme-color-11;
+        //padding-left: 4px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+      }
+    }
+
+    .button-picture{
+      border: 2px dashed rgba(255,48,95,0.5);
+      background-color: $theme-color-12;
+       color: $theme-color-11;
+      .icon:before{
+        font-size: 60px;
+        line-height: 50px;
+      }
+      .video-warn{
+        font-size: 70%;
+        color: #aaa;
+        line-height: 14px;
+      }
+    }
+    .prove-it-asset{
+      text-align: center;
+
+    }
+    .proveit_form{
+      .list{
+        margin-bottom: 0px;
+      }
+      .item-proveit{
+        //background-color: $theme-color-12;
+        color: $theme-color-11;
+        border:none;
+        padding-left: 0px;
+        input{
+          color: $theme-color-11;
+        }
+        textarea{
+          background-color: $theme-color-12;
+          color: #4c4b4b;
+          border: 1px solid #4c4b4b;
+          padding:5px;
+        }
+      }
+      .button-proveit{
+      //  background: -webkit-linear-gradient(top, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* Chrome10-25,Safari5.1-6 */
+      //  background: linear-gradient(to bottom, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background-color: $theme-color-12;
+        border-bottom-color: $theme-color-10;
+        border-left-color: $theme-color-10;
+        border-right-color: $theme-color-10;
+        color: $theme-color-11;
+      }
+      .upload-spinner{
+        width:100%;
+        text-align: center;
+      }
+      .button-sharesocial{
+      //  background: -webkit-linear-gradient(top, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* Chrome10-25,Safari5.1-6 */
+      //  background: linear-gradient(to bottom, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        // border-bottom-color: $theme-color-10;
+        // border-left-color: $theme-color-10;
+        // border-right-color: $theme-color-10;
+        background-color: $theme-color-12;
+        color: $theme-color-11;
+        border-radius: 50%;
+      }
+      .share-text{
+        margin-top: 10px;
+        text-align: center;
+        font-size: 16px;
+        color: $theme-color-11;
+      }
+      .congratulations{
+        padding-top:10px;
+        text-align: center;
+        //color: $theme-color-11;
+        font-size:120%;
+      }
+      .invite-link{
+        color:$theme-color-11;
+        text-decoration: underline;
+      }
+      .earn{
+        text-align: center;
+      }
+      .disclaimer{
+        font-size: 80%;
+        color:#b2b2b2;
+      }
+      .follow-button
+      {
+        background-color: #fff ;
+        color: $theme-color-11;
+        border-color: $theme-color-11;
+        //border-radius: 500px;
+        // &.activated
+        // {
+        //   background-color: $popup-color;
+        //   color: $popup-bg;
+        //   border-color: $popup-bg;
+        // }
+        &.isAlreadyKicked
+        {
+          background-color: $theme-color-11 !important;
+          color: #fff !important;
+          border-color: $theme-color-11 !important;
+        }
+      }
+        .fancy {
+          text-transform: uppercase;
+          margin-bottom: 0px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          line-height: 0.5;
+          text-align: center;
+          color: $theme-color-11;
+        }
+        .fancy span {
+          display: inline-block;
+          position: relative;
+        }
+        .fancy span:before,
+        .fancy span:after {
+          content: "";
+          position: absolute;
+          height: 3px;
+          border-bottom: 1px solid $theme-color-11;
+          top: 0;
+          width: 600px;
+        }
+        .fancy span:before {
+          right: 100%;
+          margin-right: 15px;
+        }
+        .fancy span:after {
+          left: 100%;
+          margin-left: 15px;
+        }
+
+    }
+
+  }
+}

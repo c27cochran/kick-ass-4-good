@@ -1,0 +1,177 @@
+<ion-view class="people-view">
+  <ion-content>
+
+    <div class="item item-divider">
+      Friends
+    </div>
+
+    <div class="suggested-people-list">
+      <div class="suggested-people row" ng-repeat="fb_friend in fb_friends">
+        <div class="container">
+        <div class="col col-center col-user-image">
+          <!-- We need a wrapper with width set for the preload image directive -->
+          <div class="user-image-outer">
+            <a ui-sref="app.profile.challenges({userId: fb_friend.uid})">
+              <pre-img ratio="_1_1" helper-class="square-image">
+                <img class="user-image" ng-src="{{fb_friend.picture.data.url}}" spinner-on-load>
+              </pre-img>
+            </a>
+          </div>
+        </div>
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <a class="name" ui-sref="app.profile.challenges({userId: fb_friend.uid})">{{fb_friend.name}}</a>
+              <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+            </div>
+            <div class="action-col col-center">
+              <a class="button button-small button-outline button-block follow-button" ui-sref="app.profile.challenges({userId: fb_friend.uid})">
+                Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="suggested-people-list">
+      <div class="suggested-people row" ng-repeat="follow in following">
+        <div class="container">
+        <div class="col col-center col-user-image">
+          <!-- We need a wrapper with width set for the preload image directive -->
+          <div class="user-image-outer">
+            <a ui-sref="app.profile.challenges({userId: follow.userData._id})">
+              <pre-img ratio="_1_1" helper-class="square-image">
+                <img class="user-image" ng-src="{{follow.userData.avatar}}" spinner-on-load>
+              </pre-img>
+            </a>
+          </div>
+        </div>
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <a class="name" ui-sref="app.profile.challenges({userId: follow.userData._id})">{{follow.userData.name}}</a>
+              <!-- <span class="brief-info">{{person.mutual_friends}} mutual friends</span> -->
+            </div>
+            <div class="action-col col-center">
+              <a class="button button-small button-outline button-block follow-button" ui-sref="app.profile.challenges({userId: follow.userData._id})">
+                Profile
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item item-divider">
+      Invite Your Friends
+    </div>
+
+    <div class="suggested-people-list">
+      <div class="suggested-people row" ng-repeat="fb_invite in fb_invites">
+        <div class="container">
+        <div class="col col-center col-user-image">
+          <!-- We need a wrapper with width set for the preload image directive -->
+          <div class="user-image-outer">
+              <pre-img ratio="_1_1" helper-class="square-image">
+                <img class="user-image" ng-src="{{fb_invite.picture.data.url}}" spinner-on-load>
+              </pre-img>
+          </div>
+        </div>
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <p>{{fb_invite.name}}</p>
+            </div>
+            <div class="action-col col-center">
+              <a class="button button-small button-outline button-block follow-button">
+                + Invite
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  <!--   <div class="item item-divider">
+      People Suggestions
+    </div>
+
+    <div class="suggested-people-cards">
+      <div class="suggested-people card" ng-repeat="suggestion in people_suggestions">
+        <div class="row">
+          <div class="col col-center col-user-image">
+
+            <div class="user-image-outer">
+              <a ui-sref="app.profile.challenges({userId: suggestion.user._id})">
+                <pre-img ratio="_1_1" helper-class="square-image">
+                  <img class="user-image" ng-src="{{suggestion.user.avatar}}" spinner-on-load>
+              	</pre-img>
+              </a>
+            </div>
+          </div>
+          <div class="col col-center">
+            <div class="row user-data">
+              <div class="col">
+                <a class="username" ui-sref="app.profile.challenges({userId: suggestion.user._id})">{{suggestion.user.username}}</a>
+                <span class="name">{{suggestion.user.name}}</span>
+              </div>
+              <div class="action-col">
+                <a class="button button-small button-outline hide-button">
+                  Hide
+                </a>
+                <a class="button button-small button-outline follow-button">
+                  Follow
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row user-related-content">
+        </div>
+        <div class="row user-relation">
+          <div class="col">
+            <span class="relation">{{suggestion.connection}}</span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="item item-divider">
+      People You May Know
+    </div>
+
+    <div class="suggested-people-list">
+      <div class="suggested-people row" ng-repeat="person in people_you_may_know">
+        <div class="container">
+        <div class="col col-center col-user-image">
+          <!-- We need a wrapper with width set for the preload image directive -->
+          <div class="user-image-outer">
+            <a ui-sref="app.profile.challenges({userId: person.user._id})">
+              <pre-img ratio="_1_1" helper-class="square-image">
+                <img class="user-image" ng-src="{{person.user.avatar}}" spinner-on-load>
+              </pre-img>
+            </a>
+          </div>
+        </div>
+        <div class="col col-center">
+          <div class="row user-data">
+            <div class="col">
+              <a class="name" ui-sref="app.profile.challenges({userId: person.user._id})">{{person.user.name}}</a>
+              <span class="brief-info">{{person.mutual_friends}} mutual friends</span>
+            </div>
+            <div class="action-col col-center">
+              <a class="button button-small button-outline button-block follow-button">
+                Follow
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

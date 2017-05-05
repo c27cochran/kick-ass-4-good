@@ -1,0 +1,518 @@
+.feed-view
+{
+	// .adclicktext{
+	//
+	// 	position:fixed;
+	// 	left:8px;
+	// 	//top:370px;
+	// 	width:400px;
+	// 	height:200px;
+	// 	z-index:1000;
+	// 	background-color: rgba(74,135,78,0.5)
+	// }
+	.feed-cards-outer
+	{
+
+		.post-card-outer:last-child
+		{
+			padding-bottom: 16px;
+		}
+	}
+
+	.featured-card {
+		// padding-top: 60px !important;
+	}
+
+	.card-1
+	{
+
+		padding: 8px 0px 8px 0px;
+		 margin-left: 8px;
+		 margin-right: 8px;
+		border-bottom: 1px dashed rgba(255,48,95,0.5);
+		background: transparent;
+		&.featured-card{
+			//background-color: $theme-color-15;
+		}
+		a
+		{
+			text-decoration: none;
+		}
+
+		.card-image-anchor
+		{
+			display: block;
+		}
+
+		.card
+		{
+			// margin: 16px 8px;
+box-shadow: none;
+			margin: 0px;
+			padding-bottom: 0px;
+			background-color: transparent;
+			.karma-point-tag{
+
+				background-color: $theme-color-11;
+				color:$theme-color-10;
+				border-radius: 50%;
+				position:absolute;
+				top: 16px;
+				right: 4px;
+				padding: 3px;
+				font-size:12px;
+				z-index: 900;
+				transition: all 1s;
+				-webkit-transition: all 1s;
+				-moz-transition: 1s;
+				-webkit-transition-timing-function: cubic-bezier(0.85,0.06,0.94,0.58);
+				transition-timing-function: cubic-bezier(0.85,0.06,0.94,0.58);
+				animation-timing-function: cubic-bezier(0.85,0.06,0.94,0.58);
+				-webkit-animation-timing-function: cubic-bezier(0.85,0.06,0.94,0.58);
+			}
+			.charity-container{
+				display:table;
+				background-color: $theme-color-12;
+				width:100%;
+				border-radius: 2px 2px 0px 0px;
+				&.featured{
+						background-color: $theme-color-15;
+				}
+				.charity-icon{
+					display:table-cell;
+					width:40px;
+
+					.button-category{
+
+						margin:5px;
+						min-width: 40px;
+						min-height: 40px;
+						font-size: 12px;
+						line-height: 26px;
+						border-radius: 50%;
+						i::before{
+							line-height: 26px;
+						}
+					}
+				}
+				.charity-name {
+					text-align: center;
+    font-size: 14px;
+					color: $theme-color-11;
+					//padding-left: 4px;
+					padding-top: 5px;
+					padding-bottom: 5px;
+					text-transform: uppercase;
+					&.featured{
+						color: $theme-color-10;
+					}
+				}
+			}
+			.item{
+				// background-color: transparent;
+			}
+			.item:last-child{
+				border-bottom-right-radius: 0px;
+				border-bottom-left-radius: 0px;
+			}
+		}
+
+		.item-body
+		{
+			background-color: transparent;
+			//padding: $card-1-padding;
+			padding:0px;
+			border-bottom: none;
+			margin-bottom: 0px;
+			//height: 38vh;//187px;
+			// display: flex;
+			// flex: 1 0 auto;
+			.card-challenge-image-outer
+			{
+				// display:table-cell;
+				width: 100%;
+				padding-bottom: 63%;
+				//height: 100%;
+				 //$item-avatar-width;
+				// position: absolute;
+				// top: 5px;
+				// left: $card-1-padding;
+
+				img
+				{
+					//max-width: 30px;//$item-avatar-width;
+					//max-height: 30px;//$item-avatar-width;
+					display: block;
+					width: 100%;
+					//height: 100%;
+					// border-radius: 50%;
+				}
+
+			}
+			.potw-banner{
+				position: absolute;
+				//top: 200px;
+				//bottom:0px;
+				right:0px;
+
+				z-index: 12;
+				background-color: $theme-color-11;
+				color: $theme-color-10;
+				.triangle{
+					width: 0;
+				height: 0;
+				border-bottom: 30px solid $theme-color-11;
+				border-left: 30px solid transparent;
+				display: inline-block;
+				height:100%;
+				}
+				.spacer{
+					height: 50px;
+				margin: 0 0 -115px 0;
+				/* margin: 20px 0 -50px 0; use this if you want #container to have a 'bottom padding', in this case of 20px */
+				background: transparent;
+				}
+				.potw-text{
+					background-color: $theme-color-15;
+					padding-left: 8px;
+					padding-right: 8px;
+					padding-top:2px;
+					padding-bottom:2px;
+					font-size: 110%;
+				}
+			}
+			.item-celebrity
+			{
+				// padding:5px 10px 3px 60px;
+				padding: 2px;
+				border-top: none;
+				border-bottom: none;
+				margin-top: 0px;
+				width:100%;
+				min-height: (30px + 4px);//($item-avatar-width + $card-1-padding);
+				display: flex;
+				align-items: center;
+				position:absolute;
+				bottom:0px;
+				// .category-icon{
+				// 	background-color: $theme-color-11;
+				// 	color:$theme-color-10;
+				// 	position:absolute;
+				// 	right:7px;
+				// 	bottom:6px;
+				// 	// padding:2px 5px 2px 5px;
+				// 	border-radius: 2px;
+				// 	display:inline-block;
+				//
+				// }
+				.card-avatar-image-outer
+				{
+					// display:table-cell;
+					width: 30px; //$item-avatar-width;
+					// position: absolute;
+					// top: 5px;
+					// left: $card-1-padding;
+
+					img
+					{
+						max-width: 30px;//$item-avatar-width;
+						max-height: 30px;//$item-avatar-width;
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+
+		// $item-avatar-width is an ionic sass variable
+
+
+
+
+
+
+		.item-banner
+		{
+
+			//left:50%;
+			//opacity: 0;
+			//position:relative;
+			padding: 0px;
+			// display:table;
+			border-top: none;
+			border-bottom: none;
+			border-right: none;
+			border-left: none;
+			pointer-events: none;
+		//  margin-top: 0px;
+			// width:100%;
+			min-height: 30px;
+			background-color: transparent;
+		//  background-color: rgba(177,251,97,0.5);
+			// background-color: transparent;
+			// overflow-y: visible;
+			//overflow: visible;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 30%;
+			margin-bottom: auto;
+
+
+
+		// -webkit-transition-property: top;
+		// transition-property: top;
+		// -webkit-transition-duration: .6s;
+		// transition-duration: .6s;
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+
+		 &.accepted
+			{
+				width:120px;
+			//  margin-left:-60px;
+				animation: bounceIn .7s;
+				//top:80px;
+				// opacity: 1;
+			}
+			&.completed
+			{
+				overflow:visible;
+				height:100px;
+				width:236px;
+				//margin-left:-118px;
+				animation: bounceIn .7s;
+				//top:120px;
+				//background-color:$theme-color-12;
+				// opacity: 1;
+			}
+			&.banner-gradient
+			{
+
+			}
+			.banner{
+				// width:100%;
+				text-align: center;
+				font-size: 55px;
+				// font-weight: bold;
+				padding: 20px;
+
+
+				// mix-blend-mode: screen;
+				// background-color: rgba(177,251,97,0.5);
+				&.banner-accepted{
+					-webkit-transform: rotate(-15deg);
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, .6) ;
+					box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+					/* background-color: rgba(255, 255, 255, 0.3); */
+					color:$theme-color-11;
+					border: 7px solid $theme-color-11;
+					/* border-radius: 5px; */
+					padding: 15px 2px 15px 2px;
+					font-size: 35px;
+					font-weight: bold;
+				}
+				&.banner-completed{
+					-webkit-transform: rotate(-15deg);
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, .6) ;
+					box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+					/* background-color: rgba(255, 255, 255, 0.3); */
+					color: $theme-color-15;
+					border: 5px solid $theme-color-15;
+					/* border-radius: 5px; */
+					padding: 15px 2px 15px 2px;
+					font-size: 35px;
+					font-weight: bold;
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+		.avatar-title
+		{
+			font-size: 14px;
+			color: $card-1-color;
+		}
+
+		.challenge-hash-tag
+		{
+			// display:table-cell;
+			// vertical-align: middle;
+			font-size: 16px;
+			color: #FF305f;
+			color: $theme-color-10;
+			padding-left: 10px;
+
+			//	text-shadow: 0px 1px 1px #363636;
+
+
+		}
+		.challenge-stats
+		{
+			background-color: $theme-color-12;
+			font-size: 12px;
+			color: $theme-color-13;
+			.row{
+				padding:0px;
+				.button-ad{
+					color: $theme-color-11;
+					background: $theme-color-12 !important;
+					border: 1px solid $theme-color-11;
+					padding: 0px;
+					border-radius: 500px;
+				}
+				div{
+					font-size: 11px;
+
+					.category-button{
+						float:right;
+						padding: 2px 4px 1px;
+						min-width: 28px;
+						min-height: 10px;
+						font-size: 11px;
+						line-height: 15px;
+						color:$theme-color-11;
+						background-color: $theme-color-12;
+					}
+				}
+				.time-left{
+					color:$theme-color-11;
+				}
+
+			}
+
+		}
+		.card-title
+		{
+			margin: 10px 0px 10px 0px;
+			font-size: 22px;
+			font-weight: 200;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.51);
+			text-transform: capitalize;
+			color: $card-1-color;
+		}
+		.bg-gradient{
+			// background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(82,82,82,0.6)), color-stop(100%, rgba(0,0,0,0.6)));
+			// background:-webkit-linear-gradient(top, rgba(82,82,82,0.6) 0%, rgba(0,0,0,0.6) 100%);
+			//background-color: rgba(255,255,255,0.6) ;
+			background-color: rgba(245, 38, 68, 0.8);
+			 overflow: hidden;
+		}
+		// .img-gradient::before {
+		//     content: '';
+		//     position: absolute;
+		//     top: 0;
+		//     right: 0;
+		//     bottom: 0;
+		//     left: 0;
+		//     background-image: linear-gradient(to bottom right, #656565, $theme-color-10000);
+		//     opacity: .6;
+		// }
+		.img-gradient{
+			.row{
+				padding:0px;
+				&.ad-body{
+					margin-top:0px;
+					padding:5px;
+					color: $theme-color-10;
+					// top:-35px;
+				background-color: rgba(245, 38, 68, 0.85);
+				}
+			}
+		}
+		.card-tag
+		{
+			position: absolute;
+			right: 0px;
+			bottom: $card-1-padding;
+			border-radius: 2px 0px 0px 2px;
+			padding: 1px $card-1-padding;
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 600;
+			max-width: 160px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.actions-brief
+		{
+			padding: $card-1-padding;
+			padding-top: $card-1-padding/2;
+			font-size: 12px;
+			font-weight: 300;
+		}
+
+		@include cardActionTabs($card-1-actions-bg, $card-1-actions-color);
+		.bar-gradient .button
+		{
+			background: -webkit-linear-gradient(top, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, #323b45 0%,#1a1f24 90%, $theme-color-10 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			border-bottom-color: $theme-color-10;
+			border-left-color: $theme-color-10;
+			border-right-color: $theme-color-10;
+			color: $theme-color-11;
+			&.liked
+			{
+				 color: $theme-color-10;
+				// background: $theme-color-11 !important;
+				// font-weight: 500;
+				background-image: url("../img/uFpLbYt.png");
+				// -moz-background-clip: text;
+				// -o-background-clip: text;
+				// -webkit-background-clip: text;
+				// background-clip: text;
+				// color: transparent;
+				// text-shadow: 0px 0px rgba(255, 255, 255, 0.06);
+				// animation-fill-mode: forwards;
+				animation: wave-animation .3s 0s 5 linear forwards , loading-animation 1s 0s 1 ease-out ;
+				background-size: 200px 100px;
+				background-repeat: repeat-x;
+				opacity: 1;
+			}
+			&.accepted
+			{
+				// color: $theme-color-10;
+				// background: $theme-color-11 !important;
+				// font-weight: 500;
+				color: $theme-color-10;
+			 // background: $theme-color-11 !important;
+			 // font-weight: 500;
+			 background-image: url("../img/uFpLbYt.png");
+			 // -moz-background-clip: text;
+			 // -o-background-clip: text;
+			 // -webkit-background-clip: text;
+			 // background-clip: text;
+			 // color: transparent;
+			 // text-shadow: 0px 0px rgba(255, 255, 255, 0.06);
+			 // animation-fill-mode: forwards;
+			 animation: wave-animation .3s 0s 5 linear forwards , loading-animation 1s 0s 1 ease-out ;
+			 background-size: 200px 100px;
+			 background-repeat: repeat-x;
+			 opacity: 1;
+			}
+		}
+
+
+
+	}
+}
+.animated{
+	z-index: 9999;
+	animation: bounceOutDown 10s;
+
+}

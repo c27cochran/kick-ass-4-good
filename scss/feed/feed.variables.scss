@@ -1,0 +1,39 @@
+// New Post Card
+$new-post-card-padding: 10px;
+$new-post-card-avatar-image-ratio: 1 1;
+
+$new-post-card-color: $theme-color-2-d;
+
+$new-post-card-actions-bg: $theme-color-1-b;
+$new-post-card-actions-color: $theme-color-2-d;
+
+// Filtered feed header
+$filtered-feed-header-bg-from: $theme-color-6;
+// $filtered-feed-header-bg-to: transparent;
+$filtered-feed-header-bg-to: $theme-color-2;
+$filtered-feed-header-title-color: $theme-color-1;
+$filtered-feed-header-title-shadow-color: $theme-color-2;
+
+// Empty Feed
+$empty-feed-color-light: $theme-color-2-d;
+
+// Feed Cards (posts)
+//$cards-list-bg: $theme-color-1-a;
+$cards-list-bg: #1B2125;
+$card-1-padding: 10px;
+
+$card-1-color: $theme-color-1;
+
+$card-1-tag-bg: $theme-color-1-b;
+
+$card-1-actions-bg: $theme-color-1-b;
+$card-1-actions-color: $theme-color-2-d;
+$card-1-actions-activated-color: $theme-color-3;
+
+$card-1-main-image-ratio: 8 5;
+$card-1-avatar-image-ratio: 1 1;
+
+// Merge maps
+$pre-img-ratios: append($pre-img-ratios, $card-1-main-image-ratio);
+$pre-img-ratios: append($pre-img-ratios, $card-1-avatar-image-ratio);
+$pre-img-ratios: append($pre-img-ratios, $new-post-card-avatar-image-ratio);

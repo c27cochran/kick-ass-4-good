@@ -1,0 +1,314 @@
+.profile-posts
+{
+	.profile-post-item
+	{
+		 //padding-left: 10px;
+		 //padding-right: 10px;
+		  padding-top:10px;
+
+	}
+.post-card-outer{
+	padding-left: 8px;
+	padding-right: 8px;
+	border-bottom: 1px dashed rgba(255,48,95,0.5);
+
+	.featured-post {
+		//padding-top: 60px !important;
+	}
+	.card-7
+	{
+		padding-top: 3px;
+		background-color: $theme-color-12;
+		&.featured-post{
+			padding-top: 0px;
+		}
+		margin-bottom: 10px;
+		a
+		{
+			text-decoration: none;
+		}
+		.row{
+			&.featured{
+				background-color: $theme-color-15;
+			}
+			padding-top: 0px;
+			padding-bottom: 5px;
+		.profile-flex{
+			width:100%;
+			position: relative;
+
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-moz-box-align: center;
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+			//background-color: rgba(255, 255, 255, .6);
+			//opacity: .4;
+			.user-pic-container{
+				// display: table-cell;
+				// vertical-align: middle;
+				//display: inline-block;
+				flex: 1;
+				max-width: 30px;
+				padding: 3px;
+				.user-image-outer
+				{
+					.pre-img
+					{
+						border-radius: 50%;
+					}
+
+					.user-image
+					{
+						width: 100%;
+						border-radius: 50%;
+						vertical-align: middle;
+					}
+				}
+
+				.user-image-cover
+				{
+					width: 100%;
+					border-radius: 50%;
+					// border: 2px solid #fff;
+					// top: 143px;
+					position: absolute;
+				}
+
+			}
+			.user-name-container{
+				// display: table-cell;
+				//display:inline-block;
+				// vertical-align: middle;
+				flex: 1;
+				flex-grow: 3;
+				padding-left: 10px;
+				h4{
+					font-size:14px;
+					color:$theme-color-11;
+
+				}
+			}
+			.user-name {
+				color: #F52644 !important;
+				&.featured{
+					color:$theme-color-10 !important;
+				}
+			}
+.user-report-button{
+	line-height: 28px;
+	.button{
+		color:$theme-color-11;
+		line-height: 28px;
+		min-height:10px;
+		&.featured{
+			color:$theme-color-10;
+		}
+		&.icon::before{
+		font-size: 28px;
+		line-height: 28px;
+		}
+	}
+
+}
+.user-edit-button{
+	line-height: 20px;
+	.button{
+		color:$theme-color-11;
+		line-height: 28px;
+		min-height:10px;
+		&.featured{
+			color:$theme-color-10;
+		}
+		&.icon::before{
+		font-size: 20px;
+		line-height: 20px;
+		}
+	}
+
+}
+}
+		}
+		.post-pic{
+width:100%;
+height:100%;
+padding-left: 0px;
+padding-right: 0px;
+.challenge-header{
+	position:absolute;
+	left: 8px;
+	right: 8px;
+	height:20px;
+	text-align: center;
+	background-color: rgba(245,38,68, .8);
+	color: $theme-color-10;
+}
+
+.potw-banner{
+	position: absolute;
+	//top: 200px;
+	//bottom:0px;
+	right:8px;
+
+	z-index: 12;
+	background-color: $theme-color-11;
+	color: $theme-color-10;
+	.triangle{
+		width: 0;
+	height: 0;
+	border-bottom: 30px solid $theme-color-11;
+	border-left: 30px solid transparent;
+	display: inline-block;
+	height:100%;
+	}
+	.spacer{
+		height: 50px;
+	margin: 0 0 -90px 0;
+	/* margin: 20px 0 -50px 0; use this if you want #container to have a 'bottom padding', in this case of 20px */
+	background: transparent;
+	}
+	.potw-text{
+		background-color: $theme-color-11;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top:2px;
+		padding-bottom:2px;
+		font-size: 120%
+	}
+}
+		}
+
+		.brag-txt{
+			padding:5px 10px 0px 10px;
+			color: $theme-color-13;
+		}
+		.hashtag-txt{
+			padding:0px 10px 5px 10px;
+			color: $theme-color-11;
+			font-size: 11px;
+
+		}
+		.post-actions{
+			a{
+				color: $theme-color-11;
+				&.featured{
+					color:$theme-color-11;
+				}
+			}
+			text-align:center;
+			color: $theme-color-11;
+			border-top: 3px solid $theme-color-10;
+			padding-bottom: 0px;
+			.col{
+				padding:0px;
+			}
+		}
+		a.already-liked {
+			color: #20a0a9;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+.image-holder{
+	overflow: hidden;
+
+		.card-image-anchor
+		{
+			display: block;
+			width:100%;
+
+			img{
+				width:100%;
+			}
+		}
+}
+		.card
+		{
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.card-content-wrapper
+		{
+			padding: 0px;
+			border-radius: 2px;
+
+			.image-wrapper
+			{
+				padding: 0px;
+				border-radius: 2px 0px 0px 2px;
+				@include calc(max-width, "((100vw - 10px)/3) - 10px");
+			}
+		}
+
+		.profile-post-image
+		{
+			.pre-img
+			{
+				border-radius: 2px 0px 0px 2px;
+			}
+
+			.post-image
+			{
+				width: 100%;
+				border-radius: 2px 0px 0px 2px;
+			}
+		}
+
+		.card-data
+		{
+			position: relative;
+			@include calc(height, "((100vw - 10px)/3) - 10px");
+		}
+
+		.card-title-outer
+		{
+			display: inline-block;
+		  // height: 65px;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+			@include calc(height, "100% - #{(20px)}");
+		}
+
+		.card-title
+		{
+			margin: 0px;
+		  font-size: 18px;
+		  font-weight: 200;
+		  text-transform: capitalize;
+		  color: $card-7-color;
+		}
+
+		.actions-brief
+		{
+			font-size: 11px;
+			font-weight: 300;
+			position: absolute;
+			bottom: 5px;
+			text-align: left;
+			height: 20px;
+			@include calc(width, "100% - #{(10px)}");
+
+			i
+			{
+				font-size: 16px;
+				color: rgba($card-7-color, .3);
+			}
+		}
+	}
+}
+}

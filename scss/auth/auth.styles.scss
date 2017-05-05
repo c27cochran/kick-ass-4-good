@@ -1,0 +1,243 @@
+.auth-view
+{
+	background-color: $auth-bg;
+
+	ion-nav-bar
+	{
+		*
+		{
+			color: $auth-color;
+
+			.buttons button::before
+			{
+				color: $auth-color;
+			}
+		}
+	}
+
+	ion-header-bar
+	{
+		background-color: $theme-color-12 !important;
+		background: $theme-color-12 !important;
+		border: none !important;
+		background-size: 0px !important; // To remove bottom border on header
+	}
+
+	.form-heading
+  {
+    height:20%;
+  }
+
+	.form-separator
+	{
+		padding: 0px 10px;
+		margin: 10px 0px;
+	}
+
+  .form-wrapper
+  {
+    height:80%;
+    margin:0px;
+
+		input
+    {
+      @include _placeholder {
+        color: lighten($auth-color, 40%);
+      }
+    }
+  }
+
+	// Form heading
+  .form-title
+  {
+    color: $theme-color-11;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+		margin-bottom: 20px;
+  }
+
+	.form-sub-title
+	{
+		text-align: center;
+		color: lighten($auth-color, 30%);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+		margin-bottom: 20px;
+	}
+
+	.social-sign-up
+	{
+		&.button-bar > .button:before
+		{
+			font-size: 28px;
+		}
+
+		&.button-bar > .button:first-child
+		{
+		  border-radius: 6px 0px 0px 6px;
+		}
+
+		&.button-bar > .button:last-child
+		{
+		  border-radius: 0px 6px 6px 0px;
+		}
+
+		.ion-social-facebook
+		{
+			@include button-style($button-facebook-bg, $button-facebook-border, $button-facebook-active-bg, $button-facebook-active-border, $button-facebook-text);
+		}
+
+		.ion-social-twitter
+		{
+			@include button-style($button-twitter-bg, $button-twitter-border, $button-twitter-active-bg, $button-twitter-active-border, $button-twitter-text);
+		}
+	}
+
+	// Form separator
+	.separator-mark
+	{
+		width: $separator-mark-width;
+		height: $separator-mark-height;
+  	line-height: $separator-mark-height;
+		text-align: center;
+		color: lighten($auth-color, 40%);
+		font-size: 16px;
+	}
+
+	.separator-line
+	{
+		@include calc(width, "50vw - #{($separator-mark-width/2)}");
+		display: block;
+		height: 1px;
+    border: 0;
+		border-top: 1px solid rgba(lighten($auth-color, 40%), 0.8);
+    padding: 0;
+		margin: ($separator-mark-height/2) 0px;
+	}
+
+	// Form wrapper
+  .form-fields-outer
+	{
+		margin: 0px;
+		background-color: $auth-bg;
+
+		.row,
+		.col
+		{
+			padding: 0px;
+		}
+
+		.multi-inputs
+		{
+			.col
+			{
+				.item.item-input
+				{
+					border-radius: 0px;
+				}
+
+				&:first-child .item.item-input
+				{
+					border-right: none;
+				}
+			}
+
+			// First multi-inputs row
+			&:first-child
+			{
+				.col:first-child
+				{
+					.item.item-input
+					{
+						border-top-left-radius: 2px;
+					}
+				}
+
+				.col:last-child
+				{
+					.item.item-input
+					{
+						border-top-right-radius: 2px;
+					}
+				}
+			}
+
+			.item.item-input
+			{
+				.multi-input
+				{
+					padding-right: 16px;
+				}
+			}
+		}
+
+		.login.button,
+		.sign-up.button,
+		.recover-password
+		{
+			border: 1px solid $theme-color-11;
+			color: $theme-color-11;
+			border-radius: 500px;
+			background-color: $theme-color-12;
+	    text-transform: uppercase;
+	    font-weight: 500;
+		}
+	}
+
+  .message
+  {
+    text-align: center;
+    color: lighten($auth-color, 30%);
+  }
+
+  .message.error:before
+  {
+    content: '*';
+    color: $error-color;
+    text-shadow: 1px 1px 0px rgba(darken($error-color, 20), .3);
+    margin-right: 5px;
+    font-size: 20px;
+  }
+
+  .alternative-actions
+  {
+    margin-top: 20px;
+
+    .button
+    {
+			&.forgot-password{
+				color:$theme-color-11;
+			}
+			color: lighten($auth-color, 30%);
+			font-size: 16px;
+    }
+  }
+
+	// Show/Hide password
+  .show-hide-input
+  {
+    display: inherit;
+    width: 100%;
+  }
+  .toggle-view-anchor
+  {
+    position:absolute;
+    top:6px;
+    right:0px;
+    height: $line-height-computed + $font-size-base;
+    line-height: $line-height-computed + $font-size-base;
+    padding-right:8px;
+
+    *
+    {
+      color: $auth-bg !important;
+      display: block;
+      font-size: 24px;
+      width: 45px;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+}

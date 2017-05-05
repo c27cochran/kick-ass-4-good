@@ -1,0 +1,51 @@
+<ion-modal-view class="modal-view prove-it-view" >
+	<ion-header-bar>
+		<h1 class="title modal-title">The Proof!</h1>
+		<a class="button button-clear" ng-click="post_modal.hide()"><span class="icon ion-close"></span></a>
+	</ion-header-bar>
+	<ion-content class="padding">
+		<div class="post-card-content">
+		  	<div class="charity-container">
+				<div  class="charity-name">{{ post.challenge.title }}</div >
+			</div>
+			<div class="row" >
+				<div class='col'>
+				  <pre-img ratio="_1_1" helper-class="rounded-image">
+				    <img class="user-image-cover" ng-src="{{post.user.avatar}}" spinner-on-load>
+				  </pre-img>
+			  	</div>
+				<div class="col">
+					<h4 class="user-name">{{post.user.name}}</h4>
+				</div>
+		  	</div>
+			<div class="row">
+				<div class="col">
+					<span ng-if="post.filetype == 'image'">
+						<img ng-src="{{post.file._downloadURL}}" width="315"/>
+					</span>
+					<span ng-if="post.filetype == 'video'">
+						<video width="315" ng-src="{{post.file._downloadURL}}"></video>
+					</span>
+					<br>
+					<div class="brag-txt">
+						{{post.brag}}
+					</div>
+					<div class="hashtag-txt">
+						#KickAss4Good {{ post.challenge.hashtag }}
+					</div>
+				</div>
+			</div>
+			<div class="row post-actions">
+				<div class="col col-33">
+					Like
+				</div>
+				<div class="col col-33">
+					Comment
+				</div>
+				<div class="col col-33">
+					Share
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>

@@ -1,0 +1,61 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "*-Info.plist": {
+                "parents": {
+                    "NSAppTransportSecurity": [
+                        {
+                            "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"FacebookAds\"><param name=\"ios-package\" value=\"FacebookAdPlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.rjfun.demo"
+        },
+        "cordova-facebook-audnet-sdk": {
+            "PACKAGE_NAME": "com.rjfun.demo"
+        },
+        "cordova-plugin-facebookads": {
+            "PACKAGE_NAME": "com.rjfun.demo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.rjfun.demo"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-facebookads/www/FacebookAds.js",
+            "id": "cordova-plugin-facebookads.FacebookAds",
+            "pluginId": "cordova-plugin-facebookads",
+            "clobbers": [
+                "window.FacebookAds"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-extension": "1.5.1",
+        "cordova-facebook-audnet-sdk": "4.7.0",
+        "cordova-plugin-facebookads": "4.7.4",
+        "cordova-plugin-whitelist": "1.2.2"
+    }
+}

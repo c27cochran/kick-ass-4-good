@@ -1,0 +1,532 @@
+ion-nav-bar,
+ion-modal-view
+{
+	ion-header-bar
+	{
+		background-color: $theme-color-12 !important;
+		background: $theme-color-12 !important;
+		border: none !important;
+		background-size: 0px !important; // To remove bottom border on header
+
+		.title
+		{
+			text-transform: capitalize;
+		}
+	}
+}
+
+ion-nav-bar
+{
+	*
+	{
+		color: $default-bar-color;
+
+		.buttons button::before
+		{
+			color: $default-bar-color;
+
+		}
+		.menu-icon{
+			color:$theme-color-10;
+		}
+	}
+}
+.blue-bg{
+	background-color:$theme-color-12;
+}
+.points-display-tab{
+	pointer-events: none;
+	left: 25%;
+top: 0px;
+width: 25%;
+
+
+text-align:center;
+	z-index: 20;
+position: absolute;
+
+//padding: 15px;
+//-webkit-transition: background-color 0.3s, color 0.3s;
+//transition: background-color 0.3s, color 0.3s;
+//animation-timing-function: ease-in;
+//animation-fill-mode: forwards;
+//animation-delay: .3s;
+
+
+	.circle-bg{
+		opacity: 0;
+		color: #fff;
+		background-color: #F52644;
+		margin-left: auto;
+		margin-right: auto;
+		width: 30px;
+		height: 30px;
+		margin-top: 2px;
+		line-height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		border-radius: 500px;
+		&.pointsAnimation{
+			-webkit-animation: anim-moema-4 1.8s ;
+			animation: anim-moema-4 1.8s ;
+
+		}
+	}
+}
+
+.button--moema {
+	-webkit-transition: background-color 0.3s, color 0.3s;
+	transition: background-color 0.3s, color 0.3s;
+}
+.button--moema::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	bottom: -20px;
+	right: -20px;
+	background: inherit;
+	border-radius: 50px;
+	z-index: -1;
+	opacity: 0.4;
+	-webkit-transform: scale3d(0.5, 0.5, 1);
+	transform: scale3d(0.5, 0.5, 1);
+}
+.button--moema.liked, .button--moema.completed{ //, .button--moema.accepted
+	-webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	color: $theme-color-10;
+	background-color: $theme-color-11;
+	-webkit-animation: anim-moema-1 0.3s forwards;
+	animation: anim-moema-1 0.3s forwards;
+}
+.profile-button{
+
+width: 30px;
+border-radius: 50%;
+
+}
+.profile-button::before {
+	padding-top: 4px;
+	font-size: 28px !important;
+	line-height: 28px !important;
+color: #888 !important ;
+
+}
+.activeButton::before{
+	color: $theme-color-11 !important;
+}
+.button--moema.pointsAnimation{
+	-webkit-transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	// color: $theme-color-10;
+	 background-color: $theme-color-11;
+	-webkit-animation: anim-moema-1 0.3s forwards;
+	animation: anim-moema-1 0.3s forwards;
+}
+.button--moema.pointsAnimation:before{
+	-webkit-animation: anim-moema-2 0.3s 0.3s backwards;
+	animation: anim-moema-2 0.3s 0.3s backwards;
+}
+.button--moema.liked:before, .button--moema.completed:before{ //, .button--moema.accepted:before
+	-webkit-animation: anim-moema-2 0.3s 0.3s forwards;
+	animation: anim-moema-2 0.3s 0.3s forwards;
+}
+@-webkit-keyframes anim-moema-1 {
+	60% {
+		-webkit-transform: scale3d(0.8, 0.8, 1);
+		transform: scale3d(0.8, 0.8, 1);
+	}
+	85% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes anim-moema-1 {
+	60% {
+		-webkit-transform: scale3d(0.8, 0.8, 1);
+		transform: scale3d(0.8, 0.8, 1);
+	}
+	85% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.1, 1.1, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes anim-moema-4 {
+	0% {
+		-webkit-transform: scale3d(0.2, 0.2, 1);
+		transform: scale3d(0.2, 0.2, 1);
+		opacity:0;
+	}
+	15% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.2, 1.2, 1);
+		opacity:1;
+	}
+	20% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+		opacity:1;
+	}
+	75% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+		opacity:1;
+	}
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1);
+		transform: scale3d(1.2, 1.2, 1);
+		opacity:1;
+	}
+	100% {
+		-webkit-transform: scale3d(0.2, 0.2, 1);
+		transform: scale3d(0.2, 0.2, 1);
+		opacity:0;
+	}
+}
+
+@-webkit-keyframes anim-moema-2 {
+	to {
+		opacity: 0;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes anim-moema-2 {
+	to {
+		opacity: 0;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+@-webkit-keyframes anim-moema-3 {
+	85%{
+		opacity: 1;
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+@keyframes anim-moema-3 {
+	85%{
+		opacity: 1;
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
+}
+.scroll {
+	padding-bottom: 100px !important;
+}
+
+.drop-logo img{
+	height: 30px;
+
+	margin-left: -30px;
+	left: 50%;
+	position: absolute;
+	z-index: 9999;
+
+}
+.platform-android .drop-logo img{
+margin-top: 7px;
+}
+.platform-ios .drop-logo img{
+margin-top: 27px;
+}
+.profile-avatar-image-outer{
+	width: 34px;
+	height: 34px;
+// position: absolute;
+}
+.profile-avatar-image-outer .spinner-on-load{
+    top: -3px;
+	}
+// .card-item.ng-enter, .card-item.ng-move, .card-item.ng-move.ng-move-active {
+//
+//     -webkit-animation: fadeInDown .5s;
+//     animation: fadeInDown .5s;
+//
+// }
+// .card-item.ng-enter-stagger, .card-item.ng-move-stagger, .card-item.ng-move-stagger.ng-move-active-stagger {
+//
+//   -webkit-animation-delay:100ms;
+//   animation-delay:100ms;
+//
+//
+//   -webkit-animation-duration:0;
+//   animation-duration:0;
+// }
+.tabs-background-grey .tabs {
+	background-color: $theme-color-10;
+	    border-color: $theme-color-10;
+}
+.col-70{
+-webkit-box-flex: 0;
+-webkit-flex: 0 0 70%;
+-moz-box-flex: 0;
+-moz-flex: 0 0 70%;
+-ms-flex: 0 0 70%;
+flex: 0 0 70%;
+max-width: 70%;
+}
+.col-30{
+-webkit-box-flex: 0;
+-webkit-flex: 0 0 30%;
+-moz-box-flex: 0;
+-moz-flex: 0 0 30%;
+-ms-flex: 0 0 30%;
+flex: 0 0 30%;
+max-width: 30%;
+}
+.blocker {
+	background: rgba(255, 255, 255, 0.7);
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	z-index: 9;
+	// -webkit-filter: blur(5px);
+	// transition: all .2s;
+	// -webkit-transition: all .2s;
+	// -moz-transition: .2s;
+}
+// striped.tabs-color-blue .tab-item.active, .tabs-striped.tabs-color-blue .tab-item.activated {
+//     margin-top: -2px;
+//     color: $theme-color-11;
+//     border: 0 solid $theme-color-11;
+//     border-top-width: 2px;
+
+// }
+.tabs-striped.tabs-color-light .tab-item{
+	color: $theme-color-11 !important;
+	font-size:13px !important;
+}
+.tabs-striped.tabs-color-light .tab-item.active, .tabs-striped.tabs-color-light .tab-item.activated {
+     margin-top: -2px;
+    color: $theme-color-11 !important;
+    border: 0 solid $theme-color-11 !important;
+     border-top-width: 2px;
+		 border-width: 0px 0px 2px 0px !important;
+
+}
+
+.button .icon-share:before, .button .icon-like:before, .button-bar .ion-trophy:before{
+    display: inline-block;
+    padding: 0 6px 1px 0;
+    vertical-align: inherit;
+    font-size: 16px;
+    line-height: 39px !important;
+    pointer-events: none;
+}
+// Preload images aux styles (ratios)
+// Auto generate ratios for the whole app (see: http://stackoverflow.com/a/18120181/1116959)
+@each $ratio in $pre-img-ratios {
+  .pre-img._#{nth($ratio, 1)}_#{nth($ratio, 2)}
+  {
+    // Conserve aspect ratio (see: http://stackoverflow.com/a/10441480/1116959)
+    width: 100%;
+    padding-bottom: #{(nth($ratio, 2) / nth($ratio, 1)) * 100}%;
+  }
+}
+.tabs-background-black
+{
+	background-color: $tabs-background-black;
+}
+.pre-img
+{
+  position: relative;
+  background-color: $pre-img-bg;
+  border-radius: 2px;
+
+	// If the image is rounded
+	&.rounded-image
+	{
+		border-radius: 50%;
+	}
+
+  &.finish-loading
+  {
+    background-color: transparent;
+    border: none;
+
+		img
+	  {
+			visibility: visible;
+			opacity: 1;
+	  }
+  }
+
+  img
+  {
+    position: absolute;
+		left: 0px;
+		top: 0px;
+		visibility: hidden;
+		opacity: 0;
+		@include transition(visibility 0s linear, opacity 0.5s linear);
+  }
+}
+
+// spinner-on-load
+@include keyframes(spin) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(359deg));
+  }
+}
+.spinner-on-load
+{
+	position: absolute;
+	font-size: $spinner-size;
+	width: $spinner-size;
+	height: $spinner-size;
+	line-height: $spinner-size;
+  color: $spinner-color;
+	@include animation(spin 2s infinite linear);
+	@include calc(top, "50% - #{($spinner-size/2)}");
+	@include calc(left, "50% - #{($spinner-size/2)}");
+}
+ion-spinner.spinner-on-load
+{
+	@include animation(none);
+  stroke: $spinner-color;
+	width: $spinner-svg-size;
+  height: $spinner-svg-size;
+	line-height: inherit;
+	@include calc(top, "50% - #{($spinner-svg-size/2)}");
+	@include calc(left, "50% - #{($spinner-svg-size/2)}");
+}
+
+// Multimedia background
+.multi-bg-outer
+{
+  position: relative;
+  background-color: rgba(darken($multi-bg, 10%), 0.7);
+  height: 100%;
+  @include transition(all ease-in-out .3s);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+
+  &.finish-loading
+  {
+    background-color: transparent;
+  }
+
+  .bg-overlay
+  {
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // background-color: $overlay-bg;
+    // z-index: -1;
+    // opacity: 0.6;
+  }
+
+  .multi-bg
+  {
+    display: none;
+  }
+}
+
+@mixin postCategories ($tag, $color) {
+	&.#{($tag)}
+	{
+		border-color: $color;
+		background-color: rgba(lighten($color, 10), .7);
+		color: $theme-color-1;
+	}
+}
+
+.post-category
+{
+	border-right: 2px solid darken($tag-default-bg, 10%);
+	background-color: $tag-default-bg;
+	color: darken($tag-default-bg, 50%);
+
+	@include postCategories("technology", $tag-2-bg);
+	@include postCategories("politics", $tag-1-bg);
+	@include postCategories("entertainment", $tag-5-bg);
+	@include postCategories("sports", $tag-3-bg);
+	@include postCategories("business", $tag-4-bg);
+	@include postCategories("world", $tag-6-bg);
+	@include postCategories("fashion", $tag-7-bg);
+	@include postCategories("art", $tag-8-bg);
+	@include postCategories("news", $tag-9-bg);
+	@include postCategories("highlights", $tag-10-bg);
+}
+
+@mixin cardActionTabs ($bg, $color) {
+  .item.tabs
+  {
+    background-color: $bg;
+    color: $color;
+    border-top: 1px solid darken($bg, 5) !important;
+    height: 36px;
+    line-height: 36px;
+
+    .tab-item
+    {
+      font-size: 13px;
+      opacity: 1;
+      color: rgba($color, .85);
+			line-height: 35px;
+
+      &.activated
+      {
+        color: darken($color, 10);
+        font-weight: 500;
+      }
+
+      &:last-child
+      {
+        border-right: none;
+      }
+
+      .icon::before
+      {
+        line-height: 40px;
+        font-size: 20px;
+      }
+
+      .icon
+      {
+        margin-top: -4px;
+
+				&.theme-icon
+				{
+					margin-top: 0px;
+  				height: 100%;
+
+					&::before
+					{
+						line-height: 35px;
+						vertical-align: bottom;
+					}
+				}
+      }
+    }
+  }
+}

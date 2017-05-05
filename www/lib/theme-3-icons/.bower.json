@@ -1,0 +1,12 @@
+{
+  "name": "theme-3-icons",
+  "_release": "d94d255355",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d94d25535522e810843ad687d64cce967ebcc56f"
+  },
+  "_source": "https://bitbucket.org/picosypalas/theme-3-icons.git",
+  "_target": "*",
+  "_originalSource": "https://bitbucket.org/picosypalas/theme-3-icons.git"
+}
