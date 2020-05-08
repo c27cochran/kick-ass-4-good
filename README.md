@@ -21,7 +21,3 @@ An app that challenges users to make a difference in the world
 - jQuery
 - SCSS
 
-[Marketing Site](http://kickass4good.com/)
-
-Check it out on the [app store](https://itunes.apple.com/us/app/kickass4good/id1118544362?mt=8)
-
